@@ -1,0 +1,40 @@
+---
+title: "الجذر حسب الشرط"
+level: "easy"
+points: 5
+tags: ["Conditions","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين الأول عبارة عن عدد صحيح `integer` والثاني عدد عشري يمثل الجذر التربيعي لهذا الرقم. قوم الدالة **بالتحقق ما إذا كان ناتج الجذر التربيعي مساوي للعدد المدخل**. في حال كان الناتج صحيح تقوم الدالة بإرجاع الناتج، في حال غير ذلك تقوم الدالة بإرجاع العدد صفر 0.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `sqr = 25`، `num = 5` | `5` |
+| `sqr = 4`، `num = 2` | `2` |
+| `sqr = 49`، `num = 8` | `0` |
+| `sqr = 64`، `num = 8` | `8` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/ef34ac15-bfe5-49af-ae51-129e31d8c9d5/view)
+
+## الحل
+
+```python tab="Python"
+def root_check(sqr: float, num: int) -> int:
+    if sqr == num ** 2:
+        return num
+    else:
+        return 0
+```
+
+```js tab="JavaScript"
+function root_check(sqr, num) {
+	return Math.sqrt(sqr) == num ? num : 0;
+}
+```

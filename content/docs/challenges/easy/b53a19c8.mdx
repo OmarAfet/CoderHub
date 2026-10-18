@@ -1,0 +1,37 @@
+---
+title: "مساحة متوازي الأضلاع"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين عشريين، طول قاعدة متوازي الأضلاع وارتفاعه. تقوم هذه الدالة **بحساب مساحة متوازي الأضلاع** وإرجاع قيمته.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `height = 3`، `base_value = 8` | `24` |
+| `height = 1`، `base_value = 4` | `4` |
+| `height = 2.3`، `base_value = 9` | `20.7` |
+| `height = 4.3`، `base_value = 3.2` | `13.76` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b53a19c8-76e4-47b1-a10e-6dd782fec9df/view)
+
+## الحل
+
+```python tab="Python"
+def areaOfParallelogram(height: float, base_value: float) -> float:
+    return height * base_value
+```
+
+```js tab="JavaScript"
+function areaOfParallelogram(height, base_value) {
+  return height * base_value;
+}
+```

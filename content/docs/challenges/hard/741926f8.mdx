@@ -1,0 +1,51 @@
+---
+title: "العمليات اللاحقة (postfix)"
+level: "hard"
+points: 20
+tags: ["String","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` ، تقوم الدالة **باستقبال معادلة رياضية** **ولكن العمليات الرياضية تكون لاحقة** `postfix` ، ثم تقوم الدالة بحلها و إرجاع النتيجة من نوع `integer`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `expr = "6 2 / 3 +"` | `6` |
+| `expr = "10 4 - 3 / 2 *"` | `4` |
+| `expr = "4 2 /"` | `2` |
+| `expr = "10 1 + 11 /"` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/741926f8-2c0c-4f23-8862-4370301b9187/view)
+
+## الحل
+
+```python tab="Python"
+def postFix(expr: str) -> int:
+    stack = []
+    tokens = expr.split()
+
+    for token in tokens:
+        if token in ['+', '-', '*', '/']:
+            right = stack.pop()
+            left = stack.pop()
+            result = 0
+            if token == '+':
+                result = left + right
+            elif token == '-':
+                result = left - right
+            elif token == '*':
+                result = left * right
+            elif token == '/':
+                result = left / right
+            stack.append(result)
+        else:
+            stack.append(int(token))
+
+    return stack[0]
+```

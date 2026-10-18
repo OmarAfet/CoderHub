@@ -1,0 +1,62 @@
+---
+title: "تحديد العملية الرياضية"
+level: "easy"
+points: 5
+tags: ["Conditions","String","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل متغيرين من نوع `integer` ، تقوم الدالة ـ `function` **باختيار العملية الرياضية المناسبة التي تؤدي للرقم 24** ، ثم قم بارجاع النتيجة من نوع `string` حيث توضح نوع العملية الرياضية
+
+       "divided"
+       "multiplied"
+       "added"
+       "subtracted"
+       "None"
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num1 = 6`، `num2 = 7` | `"None"` |
+| `num1 = 20`، `num2 = 4` | `"added"` |
+| `num1 = 3`، `num2 = 8` | `"multiplied"` |
+| `num1 = 24`، `num2 = 1` | `"divided"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/39ffdff5-2617-401b-ac27-bb28daf69b48/view)
+
+## الحل
+
+```python tab="Python"
+def operation(num1: int, num2: int) -> str:
+    if num1 + num2 == 24:
+        return 'added'
+    elif num1 - num2 == 24:
+        return 'subtracted'
+    elif num1 / num2 == 24:
+        return 'divided'
+    elif num1 * num2 == 24:
+        return 'multiplied'
+    else:
+        return 'None'
+```
+
+```js tab="JavaScript"
+function operation(num1, num2) {
+	if (num1 + num2 === 24) {
+		return "added";
+	} else if (num1 - num2 === 24) {
+		return "subtracted";
+	} else if (num1 / num2 === 24) {
+		return "divided";
+	} else if (num1 * num2 === 24) {
+		return "multiplied";
+	} else {
+		return "None";
+	}
+}
+```

@@ -1,0 +1,47 @@
+---
+title: "الترتيب حسب الطول"
+level: "medium"
+points: 10
+tags: ["Sorting","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  بدالة `function` تستقبل قيمة نصية من نوع `string` تقوم الـدالة  `function` **بترتيب الكلمات حسب طولها من الأقصر للأطول** وفي حال كانت هناك كلمتين بنفس الطول يكون الترتيب ابجدي ثم تقوم الدالة بإرجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `txt = "Have a wonderful day"` | `"a day Have wonderful"` |
+| `txt = "I see you"` | `"I see you"` |
+| `txt = "Get in the boat"` | `"in Get the boat"` |
+| `txt = "Do you speak English"` | `"Do you speak English"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/86000c8c-c148-4f21-9fb2-ad968ed53488/view)
+
+## الحل
+
+```python tab="Python"
+def sortByLength(txt: str) -> str:
+    words = txt.split()
+    sorted_words = sorted(words, key=lambda x: (len(x), x))
+
+    return ' '.join(sorted_words)
+```
+
+```js tab="JavaScript"
+function sortByLength(txt) {
+	const words = txt.split(" ");
+	const sortedWords = words.sort((a, b) => {
+		if (a.length !== b.length) {
+			return a.length - b.length;
+		}
+		return a.localeCompare(b);
+	});
+	return sortedWords.join(" ");
+}
+```

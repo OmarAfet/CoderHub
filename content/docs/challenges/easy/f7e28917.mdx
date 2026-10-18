@@ -1,0 +1,37 @@
+---
+title: "مساحة المربع"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer` يُمثل طول ضلع المربع.  تقوم الدالة **بحساب مساحة المربع** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `length = 3` | `9` |
+| `length = 8` | `64` |
+| `length = 5` | `25` |
+| `length = 2` | `4` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f7e28917-dc25-47ee-90ef-0642f5f2652f/view)
+
+## الحل
+
+```python tab="Python"
+def AreaOfSquare(length: int) -> int:
+    return length ** 2
+```
+
+```js tab="JavaScript"
+function AreaOfSquare(length) {
+	return length ** 2;
+}
+```

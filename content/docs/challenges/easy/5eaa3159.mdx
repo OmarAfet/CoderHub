@@ -1,0 +1,52 @@
+---
+title: "مطابقة مصفوفتين"
+level: "easy"
+points: 5
+tags: ["Lists","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفتين `arrays` من نوع `string` وتقوم بإرجاع قيمة `true` أو `false` اعتمادا على **مطابقة جميع الكلمات** في المصفوفة `array2` مع الكلمات الموجودة في الـمصفوفة  `array1`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `array1 = ["hello","there","word2"]`، `array2 = ["hello","there","word2"]` | `true` |
+| `array1 = ["hello","word2"]`، `array2 = ["hello","there","word2"]` | `false` |
+| `array1 = ["hello","there","word2"]`، `array2 = ["hello","word2"]` | `false` |
+| `array1 = ["hello","there","word2"]`، `array2 = ["word2","there","hello"]` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/5eaa3159-d969-41d5-8401-85dd7d59fbe2/view)
+
+## الحل
+
+```python tab="Python"
+def match_arrays(array1: list[str], array2: list[str]) -> bool:
+    x = None
+    y = None
+    for i in array1:
+        if i in array2:
+            x = True
+        else:
+            x = False
+            break
+
+    for i in array2:
+        if i in array1:
+            y = True
+        else:
+            y = False
+            break
+    return x and y
+```
+
+```js tab="JavaScript"
+function match_arrays(array1, array2) {
+	return array1.sort().toString() == array2.sort().toString();
+}
+```

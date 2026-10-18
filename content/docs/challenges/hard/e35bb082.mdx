@@ -1,0 +1,36 @@
+---
+title: "فصل الكلمات"
+level: "hard"
+points: 20
+tags: ["Conditions","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` ، تقوم الدالة **بفصل الكلمات** **عند ملاحظة حرف كبير بوضع مسافه وتحويله لحرف صغير**، ثم قم بارجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `txt = "wePlayTennis"` | `"we play tennis"` |
+| `txt = "iLikeCats"` | `"i like cats"` |
+| `txt = "computerScience"` | `"computer science"` |
+| `txt = "thankYou"` | `"thank you"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e35bb082-6cc1-4aa9-89f5-03077f5ab9f3/view)
+
+## الحل
+
+```python tab="Python"
+def cap_space(txt: str) -> str:
+    result = ''
+    for i, c in enumerate(txt):
+        if c.isupper() and i > 0:
+            result += ' '
+        result += c.lower()
+    return result
+```

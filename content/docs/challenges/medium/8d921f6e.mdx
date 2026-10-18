@@ -1,0 +1,72 @@
+---
+title: "المجموعة الفرعية المساوية"
+level: "medium"
+points: 10
+tags: ["Lists","Algorithms","Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  function تستقبل مصفوفة مكونة من اعداد صحيحة numArray، 
+
+ورقم صحيح k، تقوم هذه الدالة  function بإرجاع True اذا كانت المصفوفة numArray تحتوي على مجموعة فرعية من الممكن 
+
+جمعها ليكون الناتج مساوي k و False اذا كان غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `numArray = [7,3,2,5,8]`، `k = 14` | `true` |
+| `numArray = [2,4,6,8]`، `k = 11` | `false` |
+| `numArray = [7,5,3,1]`، `k = 4` | `true` |
+| `numArray = [14,8,12,9]`، `k = 21` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/8d921f6e-1f9c-446e-9fc4-60f995c00dde/view)
+
+## الحل
+
+```python tab="Python"
+def kSumSubset(numArray: list[int], k: int) -> bool:
+    n = len(numArray)
+    dp = [[False for _ in range(k+1)] for _ in range(n+1)]
+    
+    for i in range(n+1):
+        for j in range(k+1):
+            if j == 0:
+                dp[i][j] = True
+            elif i == 0:
+                dp[i][j] = False
+            else:
+                if numArray[i-1] <= j:
+                    dp[i][j] = dp[i-1][j] or dp[i-1][j-numArray[i-1]]
+                else:
+                    dp[i][j] = dp[i-1][j]
+    
+    return dp[n][k]
+```
+
+```js tab="JavaScript"
+function kSumSubset(numArray, k) {
+	function helper(arr, target, idx) {
+		if (target === 0) {
+			return true;
+		}
+
+		if (idx === arr.length) {
+			return false;
+		}
+
+		if (target >= arr[idx] && helper(arr, target - arr[idx], idx + 1)) {
+			return true;
+		}
+
+		return helper(arr, target, idx + 1);
+	}
+
+	return helper(numArray, k, 0);
+}
+```

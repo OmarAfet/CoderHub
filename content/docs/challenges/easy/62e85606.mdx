@@ -1,0 +1,40 @@
+---
+title: "القسمة على العدد 5"
+level: "easy"
+points: 5
+tags: ["Boolean","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer`. تقوم الدالة بالتحقق من العدد ما إذا كان **يقبل القسمة على العدد 5**  أم لا عن طريق إرجاع القيمة `true` في حال كان العدد القسمة، و `false` في حال كان غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 3` | `false` |
+| `num = 5` | `true` |
+| `num = 25` | `true` |
+| `num = 40` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/62e85606-90e8-40c8-a1e6-345826a1f104/view)
+
+## الحل
+
+```python tab="Python"
+def divisible_by_five(num: int) -> bool:
+    if num % 5 == 0:
+        return True
+    else:
+        return False
+```
+
+```js tab="JavaScript"
+function divisible_by_five(num) {
+	return num % 5 == 0 ? true : false;
+}
+```

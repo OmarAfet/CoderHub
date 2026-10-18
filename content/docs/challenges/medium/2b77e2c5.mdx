@@ -1,0 +1,41 @@
+---
+title: "هل تحتوي الكلمة على الجزء النصي"
+level: "medium"
+points: 10
+tags: ["Boolean"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة تستقبل متغيرين من نوع `string` ثم تقوم بإرجاع `true` إذا كان النص الأول يحتوي على الجزء النصي المعطى في المتغير الثاني وتقوم بإرجاع `false` في ما عدا ذلك
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `firstName = "Ahmad"`، `contains = "A"` | `true` |
+| `firstName = "Ahmad"`، `contains = "N"` | `false` |
+| `firstName = "Sara"`، `contains = "s"` | `false` |
+| `firstName = "Fahad"`، `contains = "Fa"` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2b77e2c5-6e27-42a3-822b-3bd41f777414/view)
+
+## الحل
+
+```python tab="Python"
+def stringContains(firstName: str, contains: str) -> bool:
+	return contains in firstName
+```
+
+```js tab="JavaScript"
+function stringContains(firstName, contains) {
+	if (firstName.includes(contains)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+```

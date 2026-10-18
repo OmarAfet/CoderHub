@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* !important overrides the inline style the scroll lock sets on <body>. */
+html > body[data-scroll-locked] {
+  /* biome-ignore lint/complexity/noImportantStyles: see above */
+  margin-right: 0px !important;
+  /* biome-ignore lint/complexity/noImportantStyles: see above */
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Tailwind v4 dropped cursor: pointer on buttons; restore it for every clickable control. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="combobox"],
+  [role="tab"],
+  [role="menuitem"],
+  [role="option"],
+  summary,
+  select,
+  label[for] {
+    cursor: pointer;
+  }
+}
+
+/* RTL pages: code reads left to right; inline code is isolated so it does
+   not reorder the Arabic around it. */
+pre,
+code {
+  direction: ltr;
+}
+:not(pre) > code {
+  unicode-bidi: isolate;
+}

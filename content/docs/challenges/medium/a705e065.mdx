@@ -1,0 +1,31 @@
+---
+title: "التحقق من وجود مسافة في الجملة"
+level: "medium"
+points: 10
+tags: ["Conditions","Loop","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل قيمة نصية من نوع `string` تقوم الدالة `function` بالتحقق مما اذا كانت **توجد مسافة space في النص أم لا** في حال وجود مسافة  **استبدل كل مسافة space بعلامة #** ثم تقوم  الدالة بإرجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "Riyadh"` | `"Riyadh"` |
+| `strParam = "Saudi Arabia"` | `"Saudi#Arabia"` |
+| `strParam = "CoderHub"` | `"CoderHub"` |
+| `strParam = "What do you do?"` | `"What#do#you#do?"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/a705e065-6874-4024-971e-8e2695b001e1/view)
+
+## الحل
+
+```python tab="Python"
+def hasSpace(strParam: str) -> str:
+    return strParam.replace(' ', '#')
+```

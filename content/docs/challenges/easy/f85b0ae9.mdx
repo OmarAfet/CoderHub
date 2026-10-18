@@ -1,0 +1,64 @@
+---
+title: "العد التنازلي بثلاثة"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-06-01T13:25:26"
+status: "solved"
+---
+
+## الوصف
+
+قُم بكتابة دالة تستقبل عدد صحيح `integer`. تقوم هذه الدالة بالعد التنازلي من ذلك العدد **بثلاث أرقام** وصولاً إلى الصفر، ومن ثم إرجاع مصفوفة من الأعداد الزوجية لذلك العد التنازلي مرتبة تصاعدياً. في حال كان العد التنازلي لا يحتوي على الأعداد (لأن الحد المُمر يساوي 3 أو أقل) سيتم إرجاع القيمة `[0]`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 10` | `[4]` |
+| `num = 23` | `[2,8,14,20]` |
+| `num = 103` | `[4,10,16,22,28,34,40,46,52,58,64,70,76,82,88,94,100]` |
+| `num = 15` | `[6,12]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f85b0ae9-8ad7-444e-bcde-aee2191e51e5/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def countdown(num: int) -> List[int]:
+    if num <= 3:
+        return [0]
+    
+    r = []
+    for i in range(num, 0, -3):
+        if i == num:
+            pass
+        else:
+            r.append(i)
+            
+    res = []
+    for i in r:
+        if i % 2 == 0:
+            res.append(i)
+    return res[::-1]
+```
+
+```js tab="JavaScript"
+function countdown(num) {
+	if (num <= 3) {
+		return [0];
+	} else {
+		let even_numbers = [];
+		let countdown = num;
+		while (countdown > 0) {
+			if (countdown % 2 == 0 && countdown != num) {
+				even_numbers.push(countdown);
+			}
+			countdown -= 3;
+		}
+		return even_numbers.sort((a, b) => a - b);
+	}
+}
+```

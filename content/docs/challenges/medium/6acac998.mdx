@@ -1,0 +1,40 @@
+---
+title: "مقارنة طول النصوص"
+level: "medium"
+points: 10
+tags: ["String"]
+languages: ["Python"]
+date: "2022-06-01T13:25:26"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة تستقبل مصفوفة من القيم النصية، تقوم تلك الدالة بمقارنة القيم النصية وإرجاع `true` في حال كان عدد characters لجميع النصوص متطابق، وإرجاع `false` في حال خلاف ذلك. اذا كانت المصفوفة فارغة أو تحتوي على عنصر واحد فقط، قم بإرجاع القيمة `false`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `words = ["A","B"]` | `true` |
+| `words = ["Khalid","Sultan","AlDana","Johrah","Ghadah"]` | `true` |
+| `words = ["Satr","CoderHub"]` | `false` |
+| `words = ["123","456","789"]` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/6acac998-e1b4-4729-9c71-993a88591e35/view)
+
+## الحل
+
+```python tab="Python"
+def str_len_comparison(words: list[str]) -> bool:
+    if len(words) == 0 or len(words) == 1:
+        return False
+
+    x = len(words[0])
+    for i in words:
+        if len(i) == x:
+            continue
+        else:
+            return False
+    return True
+```

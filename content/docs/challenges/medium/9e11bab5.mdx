@@ -1,0 +1,39 @@
+---
+title: "مصفوفة تحتوي على بداية ذات الكلمة"
+level: "medium"
+points: 10
+tags: ["String"]
+languages: ["Python"]
+date: "2022-06-01T13:25:26"
+status: "solved"
+---
+
+## الوصف
+
+قم بإنشاء `function` تستقبل قيمة نصية `String` تحتوي على جزء من بداية كلمة، ومصفوفة `Array`  تحتوي على عدة كلمات. تقوم  الدالة بإرجاع مصفوفة تحتوي على الكلمات التي تبدأ بنفس النص الذي تم تمريره. إن لم تحتوي المصفوفة على شيء مطابق، فقم بإرجاع مصفوفة فيها القيمة النصيّة `No matches found`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `words = ["Nouf","Abdullah"]`، `text = "Gh"` | `["No matches found"]` |
+| `words = ["Reassemble","Remainder","Room","Receive"]`، `text = "re"` | `["Reassemble","Remainder","Receive"]` |
+| `words = ["Compared","Coding","Career","Coderhub","Cold","Call"]`، `text = "co"` | `["Compared","Coding","Coderhub","Cold"]` |
+| `words = ["Save","Saudi","Satr","Send","Salt","Super","Sample"]`، `text = "sa"` | `["Save","Saudi","Satr","Salt","Sample"]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/9e11bab5-d074-4e04-bff6-9f594d5eb91c/view)
+
+## الحل
+
+```python tab="Python"
+def find_prefix(words: list[str], text: str) -> list[str]:
+    x = []
+    for i in words:
+        if (i[:2]).lower() == (text).lower():
+            x.append(i)
+
+    if len(x) == 0:
+        return ['No matches found']
+
+    return x
+```

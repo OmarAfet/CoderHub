@@ -1,0 +1,40 @@
+---
+title: "إضافة كلمة داخل نص"
+level: "easy"
+points: 5
+tags: ["Conditions","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين الأولى عدد صحيح `integer` والثانية قيمة نصية `string`. تقوم  الدالة بإضافة كلمة  **Hi** أو  **Bye** على الاسم المدخل بحيث **Hi =1 و  Bye= 0**.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `name = "Anas"`، `num = 0` | `"Bye Anas"` |
+| `name = "Samar"`، `num = 1` | `"Hi Samar"` |
+| `name = "Wafa"`، `num = 1` | `"Hi Wafa"` |
+| `name = "Bye"`، `num = 0` | `"Bye Bye"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7a142321-72fe-42f8-9a5b-61774fc95e70/view)
+
+## الحل
+
+```python tab="Python"
+def say_hi_bye(name: str, num: int) -> str:
+    if num == 0:
+        return f'Bye {name}'
+    elif num == 1:
+        return f'Hi {name}'
+```
+
+```js tab="JavaScript"
+function say_hi_bye(name, num) {
+	return num === 0 ? `Bye ${name}` : `Hi ${name}`;
+}
+```

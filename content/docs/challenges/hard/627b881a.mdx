@@ -1,0 +1,51 @@
+---
+title: "التحويل من 12 ساعة إلى 24 ساعة والعكس"
+level: "hard"
+points: 20
+tags: ["Numbers","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية `string` تعبر عن الساعة كنظام 12 أو 24 ساعة و تقوم بالتحويل بينها ، و قم بإلحاق نظام 12 ساعة بـ am أو pm ثم قم بارجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `time = "10:30 am"` | `"10:30"` |
+| `time = "7:13 pm"` | `"19:13"` |
+| `time = "19:00"` | `"7:00 pm"` |
+| `time = "12:00 am"` | `"0:00"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/627b881a-1624-4521-9f90-6f54b07e6faa/view)
+
+## الحل
+
+```python tab="Python"
+def convert_time(time: str) -> str:
+    if 'am' in time:
+        time = time.replace('am', '').strip()
+        if time == '12:00':
+            time = '0:00'
+        return time
+    elif 'pm' in time:
+        time = time.replace('pm', '').strip()
+        if time == '12:00':
+            return '12:00'
+        hours, minutes = time.split(':')
+        return str(int(hours) + 12) + ':' + minutes
+    else:
+        hours, minutes = time.split(':')
+        if int(hours) > 12:
+            return str(int(hours) - 12) + ':' + minutes + ' pm'
+        elif int(hours) == 12:
+            return time + ' pm'
+        elif int(hours) == 0:
+            return '12:' + minutes + ' am'
+        else:
+            return time + ' am'
+```

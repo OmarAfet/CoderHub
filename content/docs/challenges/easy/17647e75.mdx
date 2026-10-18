@@ -1,0 +1,42 @@
+---
+title: "المتوسط الحسابي"
+level: "easy"
+points: 5
+tags: ["Lists","Math","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` مكونة من أعداد صحيحة `integer`. تقوم هذه الدالة بإرجاع قيمة **المتوسط الحسابي** لهذه الأعداد.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `values = [2,4,9,23,435]` | `94.6` |
+| `values = [3,5,67,1]` | `19` |
+| `values = [99,314,8,200,1]` | `124.4` |
+| `values = [72,0,23,70,1]` | `33.2` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/17647e75-d282-4cc0-9a77-0429ef334a22/view)
+
+## الحل
+
+```python tab="Python"
+def average(values: list[int]) -> float:
+    if all(isinstance(i, (int, float)) for i in values):
+        return sum(values) / len(values)
+```
+
+```js tab="JavaScript"
+function average(values) {
+  let sum = 0;
+  for (let i = 0; i < values.length; i++) {
+    sum += values[i];
+  }
+  return sum / values.length;
+}
+```

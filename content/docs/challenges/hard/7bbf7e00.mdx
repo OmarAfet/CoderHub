@@ -1,0 +1,67 @@
+---
+title: "فك الرسالة المشفرة"
+level: "hard"
+points: 20
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-05-29T14:43:13"
+status: "solved"
+---
+
+## الوصف
+
+في مركز العمليات السيبرانية، وصلتك رسالة مشفّرة تحتوي على معلومات حساسة علاقتها بأمن شبكات الدولة. البيانات مُرتّبة في نصّ طويل، وهناك جزء صغير مختبئ بداخله جميع الأحرف اللازمة لفك تشفير الرسالة الحقيقية.
+
+مهمتك هي البحث داخل هذا النص الكبير عن **أصغر جزء** (نافذة نصية) يحتوي على جميع الأحرف الموجودة في النمط السرّي (بما في ذلك أي تكرارات).
+
+- **المدخلات:**
+
+- نص طويل يمثل البيانات المعترَضة.
+
+- نمط سري يمثّل الأحرف المطلوبة (قد يتضمّن حرفاً معيناً أكثر من مرة).
+
+- **ما يجب فعله:**
+إيجاد أقصر جزء من النص الطويل يضمّ كل أحرف النمط السرّي بنفس عدد التكرارات.
+
+- **القيود:**
+
+- يجب استخدام كل حرف بالضبط بعدد مرات ظهوره في النمط.
+
+- إذا لم يوجد أي جزء يحقق الشرط، تعاد سلسلة فارغة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `s = "ADOBECODEBANC"`، `t = "ABC"` | `"BANC"` |
+| `s = "a"`، `t = "a"` | `"a"` |
+| `s = "a"`، `t = "aa"` | `""` |
+| `s = "aaflslflsldkalskaaa"`، `t = "aaa"` | `"aaa"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7bbf7e00-086b-4132-8d38-4b47aed83f9d/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def minWindow(s: str, t: str) -> str:
+    from collections import Counter
+    need = Counter(t)
+    missing = len(t)
+    left = 0
+    best = (0, float('inf'))
+    for right, c in enumerate(s):
+        if need[c] > 0:
+            missing -= 1
+        need[c] -= 1
+        if missing == 0:
+            while need[s[left]] < 0:
+                need[s[left]] += 1
+                left += 1
+            if right - left < best[1] - best[0]:
+                best = (left, right)
+            need[s[left]] += 1
+            missing += 1
+            left += 1
+    return '' if best[1] == float('inf') else s[best[0]:best[1]+1]
+```

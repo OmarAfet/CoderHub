@@ -1,0 +1,38 @@
+---
+title: "الأعداد الأولية في مصفوفة"
+level: "medium"
+points: 10
+tags: ["Numbers","Lists","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة  `array` من نوع `integer` ، وتقوم الـدالة `function` بإرجاع **الأعداد الأولية** `prime numbers` الموجودة في تلك الـمصفوفة `array`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `numbers = [2,5,8,12,25]` | `[2,5]` |
+| `numbers = [27,23,5,9]` | `[23,5]` |
+| `numbers = [7,24,10,2]` | `[7,2]` |
+| `numbers = [3,80,25]` | `[3]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d122bc96-d15b-483f-8fda-c937c8bcd833/view)
+
+## الحل
+
+```python tab="Python"
+def primes_nums(numbers: list[int]) -> list[int]:
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    return [n for n in numbers if is_prime(n)]
+```

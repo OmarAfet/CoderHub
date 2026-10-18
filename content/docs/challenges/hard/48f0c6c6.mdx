@@ -1,0 +1,88 @@
+---
+title: "مشتركين نشرة رمضان"
+level: "hard"
+points: 20
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-03-03T21:29:47"
+status: "solved"
+---
+
+## الوصف
+
+في أجواء شهر رمضان المبارك، قررت إحدى الشركات إرسال نشرة بريدية رمضانية تحتوي على محتوى مميز وخاص بهذه المناسبة. لكن القائمة التي ستُرسل منها النشرة تحتوي على العديد من العناوين المتكررة، كما تشمل عناوين من نطاقات بريدية لا ترغب الشركة باستهدافها في حملتها الرمضانية.
+
+ممكن تساعدك :
+:**Emails (emails)**
+قائمة بعناوين البريد الإلكتروني مثل `["user@gmail.com", "admin@company.com"]`.
+
+- **:Excluded Domains (excludedDomains)**
+قائمة تحتوي على أسماء النطاقات التي يجب تجاهلها (استبعادها) مثل `["gmail.com", "yahoo.com"]`.
+
+- **الهدف من التحدي:**
+كتابة دالة `filterSubscribers(emails, excludedDomains)` تعيد قائمة نظيفة من عناوين البريد الإلكتروني من خلال:
+
+- **إزالة التكرارات** (مع تجاهل حالة الأحرف حتى لا يتم احتساب `User@gmail.com` و `user@gmail.com` كعناوين مختلفة).
+
+- **استبعاد** أي عنوان ينتمي إلى أحد النطاقات في قائمة `excludedDomains`.
+
+مثال:
+لنفترض أن لديك البيانات التالية:
+const emails = [
+
+"user@gmail.com",
+
+"admin@company.com",
+
+"info@yahoo.com",
+
+"USER@gmail.com",
+
+"support@company.com",
+
+"sales@business.org"
+
+];
+
+const excludedDomains = ["gmail.com", "yahoo.com"];
+
+النتيجة :
+[
+
+"admin@company.com",
+
+"support@company.com",
+
+"sales@business.org"
+
+]
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `emails = ["user@gmail.com","admin@company.com","info@yahoo.com","user@gmail.com","support@company.com","sales@business.org"]`، `excludedDomains = ["gmail.com","yahoo.com"]` | `["admin@company.com","support@company.com","sales@business.org"]` |
+| `emails = ["info@domain.com","info@domain.com","sales@business.com"]`، `excludedDomains = []` | `["info@domain.com","sales@business.com"]` |
+| `emails = ["tester@Gmail.com","tester@gmail.com","dev@yahoo.com","user@mySite.org"]`، `excludedDomains = ["gmail.com","yahoo.com"]` | `["user@mySite.org"]` |
+| `emails = ["admin@company.com","admin@Company.com","admin@company.com"]`، `excludedDomains = ["outlook.com"]` | `["admin@company.com"]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/48f0c6c6-fa76-4262-8967-59f4ecf45741/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def filterSubscribers(emails: List[str], excludedDomains: List[str]) -> List[str]:
+    excluded = set(d.lower() for d in excludedDomains)
+    seen = set()
+    result = []
+    for email in emails:
+        lower_email = email.lower()
+        if lower_email in seen:
+            continue
+        seen.add(lower_email)
+        domain = lower_email.split('@')[1]
+        if domain not in excluded:
+            result.append(email)
+    return result
+```

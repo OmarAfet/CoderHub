@@ -1,0 +1,46 @@
+---
+title: "التحقق من الحروف"
+level: "easy"
+points: 5
+tags: ["Conditions","Algorithms","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل نص من نوع `string` ، تقوم الدالة  `function` بالتأكد من الكلمة المدخلة هل جميع أحرفها نفس الحالة (Case sensitivity) أم لا . ثم تقوم الدالة  بإرجاع النتيجة من نوع` boolean`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "hello"` | `true` |
+| `word = "Hello"` | `false` |
+| `word = "HI"` | `true` |
+| `word = "a"` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/fe526c05-e851-4825-b785-1886ea1daed0/view)
+
+## الحل
+
+```python tab="Python"
+def allSameCase(word: str) -> bool:
+    if word.islower():
+        return word.islower()
+    elif word.isupper():
+        return word.isupper()
+    else:
+        return False
+```
+
+```js tab="JavaScript"
+function allSameCase(word) {
+    if (word == word.toLowerCase() || word == word.toUpperCase()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+```

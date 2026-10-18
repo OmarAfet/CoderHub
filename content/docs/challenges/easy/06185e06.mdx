@@ -1,0 +1,42 @@
+---
+title: "حساب مابعد الفاصلة"
+level: "easy"
+points: 5
+tags: ["Algorithms","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع  `string` عبارة عن على عدد عشري أو صحيح. تقوم الدالة **بحساب عدد الأرقام التي بعد الفاصلة** وإرجاع النتيجة على شكل قيمة من نوع `integer`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = "3.967"` | `3` |
+| `num = "2.9"` | `1` |
+| `num = "200"` | `0` |
+| `num = "5.19054"` | `5` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/06185e06-3cef-4b4e-ab3f-5b2f050fa1c2/view)
+
+## الحل
+
+```python tab="Python"
+def Decimal_places(num: str) -> int:
+    if '.' in num:
+        x = num.split('.')
+        x = x[1]
+        return len(x)
+    else:
+        return 0
+```
+
+```js tab="JavaScript"
+function Decimal_places(num) {
+	return String(num.split(".").slice(1)).length;
+}
+```

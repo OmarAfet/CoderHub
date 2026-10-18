@@ -1,0 +1,35 @@
+---
+title: "التحقق من العملية الرياضية"
+level: "hard"
+points: 20
+tags: ["Math","Loop"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` ، تقوم الدالة بالتحقق هل القيمة النصية **تمثل عملية رياضية أم لا** ثم قم بارجاع النتيجة من نوع `boolean`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `expr = "8-6"` | `true` |
+| `expr = "q-3"` | `false` |
+| `expr = "7#4"` | `false` |
+| `expr = "6/1"` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/eee774ad-b85b-4ab1-957b-11de84a5ac8b/view)
+
+## الحل
+
+```python tab="Python"
+def math_expr(expr: str) -> bool:
+    for i in expr:
+        if i.isalpha() or i in "!#\"$&'(),.:;<=>?@[\]^_`{|}~":
+            return False
+
+    return True
+```

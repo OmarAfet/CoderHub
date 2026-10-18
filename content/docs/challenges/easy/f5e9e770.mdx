@@ -1,0 +1,37 @@
+---
+title: "مساحة المعين"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين عشريين من نوع `float` يُمثلان طولا قُطريّ المعين. تقوم الدالة **بحساب مساحة المعين** وإرجاع نتيجته.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `q = 6`، `p = 7` | `21` |
+| `q = 3`، `p = 6.6` | `9.9` |
+| `q = 8.7`، `p = 9.1` | `39.58` |
+| `q = 9.2`، `p = 8.6` | `39.56` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f5e9e770-f269-4e7d-b4b7-9f406498ff8f/view)
+
+## الحل
+
+```python tab="Python"
+def area_of_rhombus(q: float, p: float) -> float:
+    return (p * q) / 2
+```
+
+```js tab="JavaScript"
+function area_of_rhombus(q, p) {
+	return (q * p) / 2;
+}
+```

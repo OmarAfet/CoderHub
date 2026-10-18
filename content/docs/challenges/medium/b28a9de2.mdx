@@ -1,0 +1,38 @@
+---
+title: "مجموع المصفوفة التراكمي"
+level: "medium"
+points: 10
+tags: ["Loop","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة من نوع `integer`  تقوم الـدالة `function` **بجمع  قيمة العنصر مع جميع القيم السابقة في المصفوفة** ثم قم بارجاع النتيجة كمصفوفة من نوع `integer`
+
+` [...,a,a+b,a+b+c] <= [...,a,b,c]`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [2,4,8]` | `[2,6,14]` |
+| `arr = [0,0,0]` | `[0,0,0]` |
+| `arr = [3,4,5]` | `[3,7,12]` |
+| `arr = [-4,-3,-2]` | `[-4,-7,-9]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b28a9de2-0e47-42ba-9cf5-99543d52578c/view)
+
+## الحل
+
+```python tab="Python"
+def cumulative_sum(arr: list[int]) -> list[int]:
+    cumulative_sum_arr = []
+    cumulative_sum = 0
+    for value in arr:
+        cumulative_sum += value
+        cumulative_sum_arr.append(cumulative_sum)
+    return cumulative_sum_arr
+```

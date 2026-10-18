@@ -1,0 +1,42 @@
+---
+title: "إضافة الرمز # لجميع حدود المصفوفة"
+level: "easy"
+points: 5
+tags: ["String","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `string`. تقوم الدالة **بإضافة الرمز #**  إلى جميع عناصر المصفوفة وإرجاع النتيجة كقيمة نصية.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `my_array = ["stay_home","coronavirus","Saudi_Arabia"]` | `"#stay_home #coronavirus #Saudi_Arabia"` |
+| `my_array = ["Vibes","SAFCSP","entrepreneur"]` | `"#Vibes #SAFCSP #entrepreneur"` |
+| `my_array = ["SAFCSP","SAUDI_ARABIA","Riyadh"]` | `"#SAFCSP #SAUDI_ARABIA #Riyadh"` |
+| `my_array = ["Programming","Code"]` | `"#Programming #Code"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c000a335-771b-4643-ad0d-32242f890615/view)
+
+## الحل
+
+```python tab="Python"
+def hashtag_it(my_array):
+    hashtags = ['#' + s for s in my_array]
+    return ' '.join(hashtags)
+```
+
+```js tab="JavaScript"
+function hashtag_it(my_array) {
+	let hashtags = [];
+	for (let i = 0; i < my_array.length; i++) {
+		hashtags.push("#" + my_array[i]);
+	}
+	return hashtags.join(" ");
+}
+```

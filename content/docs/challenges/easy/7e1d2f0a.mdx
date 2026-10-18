@@ -1,0 +1,48 @@
+---
+title: "جمع الأعداد الزوجية في مصفوفة"
+level: "easy"
+points: 5
+tags: ["Math","Conditions"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة من نوع `integer`، تقوم الدالة **بجمع الأعداد الزوجية فقط** وإرجاع النتيجة كعدد صحيح `integer`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [11,0,5,22]` | `22` |
+| `arr = [16,3,9,2]` | `18` |
+| `arr = [12,65,42]` | `54` |
+| `arr = [1,3,7]` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7e1d2f0a-bc1d-4e52-822a-6074604b1b21/view)
+
+## الحل
+
+```python tab="Python"
+def sum_even(arr: list[int]) -> int:
+    x = []
+    for i in arr:
+        if i % 2 == 0:
+            x.append(i)
+    return sum(x)
+```
+
+```js tab="JavaScript"
+function sum_even(arr) {
+	x = 0;
+	for (let i = 0; i < arr.length; i++) {
+		const e = arr[i];
+		if (e % 2 == 0) {
+			x += e;
+		}
+	}
+	return x;
+}
+```

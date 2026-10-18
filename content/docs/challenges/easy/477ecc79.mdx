@@ -1,0 +1,39 @@
+---
+title: "هل يمكن تشكيل النص؟"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python"]
+date: "2024-03-25T14:54:18"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة تستقبل متغيرين من نوع `string`. الدالة يجب أن تُرجع `yes` إذا كان من الممكن تشكيل النص الموجود في المتغير `target` من الأحرف الموجودة في `source`، دون الأخذ في الاعتبار ترتيب الأحرف أو الفرق بين الحروف الصغيرة والكبيرة. وترجع `no` في غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `source = "Hubcoders"`، `target = "coderhub"` | `"yes"` |
+| `source = "SATR"`، `target = "satr"` | `"yes"` |
+| `source = "programmer"`، `target = "programming"` | `"no"` |
+| `source = "worldhello"`، `target = "hello"` | `"yes"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/477ecc79-6cbc-401c-be9a-199125a1efe0/view)
+
+## الحل
+
+```python tab="Python"
+def canForm(source: str, target: str) -> str:
+    source_chars = [char for char in source.lower()]
+    target_chars = [char for char in target.lower()]
+    
+    for char in target_chars:
+        if char not in source_chars:
+            
+            return "no"
+    
+    return "yes"
+```

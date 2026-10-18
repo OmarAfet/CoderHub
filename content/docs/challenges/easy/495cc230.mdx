@@ -1,0 +1,44 @@
+---
+title: "عدد زوجي أم فردي"
+level: "easy"
+points: 5
+tags: ["Numbers","String","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل عدد من نوع `integer`، تقوم الدالة  `function` بإرجاع قيمة من نوع `string` توضّح ما إذا كان العدد **زوجي أو فردي**
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 5` | `"فردي"` |
+| `number = 1` | `"فردي"` |
+| `number = 2` | `"زوجي"` |
+| `number = 4` | `"زوجي"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/495cc230-ecb4-4630-8948-93f39247e082/view)
+
+## الحل
+
+```python tab="Python"
+def odd_even(number: int) -> str:
+    if number % 2 == 0:
+        return 'زوجي'
+    else:
+        return 'فردي'
+```
+
+```js tab="JavaScript"
+function odd_even(number) {
+	if (number % 2 == 0) {
+		return "زوجي";
+	} else {
+		return "فردي";
+	}
+}
+```

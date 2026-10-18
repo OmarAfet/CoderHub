@@ -1,0 +1,45 @@
+---
+title: "عكس حالة الحروف"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل قيمة من نوع `string` تقوم الدالة `function` بتبديل حالة الحروف حيث تقوم **بتحويل الـحرف  `lowercase` لحرف  `uppercase` والعكس** ومن ثم إرجاع القيمة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "TeSt"` | `"tEsT"` |
+| `strParam = "Ok"` | `"oK"` |
+| `strParam = "CaT"` | `"cAt"` |
+| `strParam = "Five"` | `"fIVE"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/a310bc98-ed9b-4381-92a4-0a4e86e51650/view)
+
+## الحل
+
+```python tab="Python"
+def reverse_case(strParam: str) -> str:
+    return strParam.swapcase()
+```
+
+```js tab="JavaScript"
+function reverse_case(strParam) {
+	let newStr = "";
+	for (let i = 0; i < strParam.length; i++) {
+		if (strParam[i] == strParam[i].toUpperCase()) {
+			newStr += strParam[i].toLowerCase();
+		} else {
+			newStr += strParam[i].toUpperCase();
+		}
+	}
+	return newStr;
+}
+```

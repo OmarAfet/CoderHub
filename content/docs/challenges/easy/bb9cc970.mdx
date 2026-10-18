@@ -1,0 +1,39 @@
+---
+title: "مساحة الدائرة"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد عشري يُمثل نصف قطر الدائرة. تقوم الدالة **بحساب مساحة الدائرة** وإرجاع النتيجة.
+
+**ملاحظة**: قم بتعويض الثابت `pi` بالقيمة `3.14`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `radius = 5.4` | `91.5624` |
+| `radius = 7` | `153.86` |
+| `radius = 1` | `3.14` |
+| `radius = 10.2` | `326.6856` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/bb9cc970-d1ef-4f25-bb51-b7d2525cfca7/view)
+
+## الحل
+
+```python tab="Python"
+def find_circle_area(radius: float) -> float:
+    return (radius**2) * 3.14
+```
+
+```js tab="JavaScript"
+function find_circle_area(radius) {
+	return 3.14 * radius * radius;
+}
+```

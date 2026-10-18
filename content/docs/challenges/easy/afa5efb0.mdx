@@ -1,0 +1,37 @@
+---
+title: "الأُس التربيعي"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer`. تقوم الدالة بإرجاع **الأُس التربيعي exponent squared**  لهذا العدد.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 2` | `4` |
+| `number = -8` | `64` |
+| `number = 0` | `0` |
+| `number = 1` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/afa5efb0-0ef2-4457-a692-2a6323bda345/view)
+
+## الحل
+
+```python tab="Python"
+def exponent_squared(number: int) -> int:
+    return number * number
+```
+
+```js tab="JavaScript"
+function exponent_squared(number) {
+	return number ** 2;
+}
+```

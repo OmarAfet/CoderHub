@@ -1,0 +1,44 @@
+---
+title: "متوسط المصفوفة"
+level: "easy"
+points: 5
+tags: ["Loop","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer`. تقوم الـدالة **بحساب معدل متوسط المصفوفة** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [4,1]` | `2.5` |
+| `arr = [6,7,8,9]` | `7.5` |
+| `arr = [10,15]` | `12.5` |
+| `arr = [1,5,3,6,6]` | `4.2` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2743e13a-2f7b-42b4-a01f-3ce318a6742b/view)
+
+## الحل
+
+```python tab="Python"
+def get_mean(arr: list[int]) -> float:
+    sum = 0
+    for num in arr:
+        sum += num
+    return sum / len(arr)
+```
+
+```js tab="JavaScript"
+function get_mean(arr) {
+	let sum = 0;
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i];
+	}
+	return sum / arr.length;
+}
+```

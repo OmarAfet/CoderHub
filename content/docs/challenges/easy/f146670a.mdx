@@ -1,0 +1,75 @@
+---
+title: "التحقق من الجملة إذا كانت (Palindrome)"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-02-02T15:46:52"
+status: "solved"
+---
+
+## الوصف
+
+الجملة تعتبر **باليندروم** (Palindrome) إذا كانت تقرأ بنفس الشكل عند قراءتها من الأمام أو من الخلف، بعد:
+
+- تحويل جميع الأحرف إلى **أحرف صغيرة**.
+
+- إزالة جميع **الأحرف غير الأبجدية الرقمية** (مثل المسافات والعلامات).
+
+اكتب دالة `isPalindrome` تأخذ نصًا `s` كمدخل، وتُعيد:
+
+- `true` إذا كانت الجملة باليندروم.
+
+- `false` إذا لم تكن كذلك.
+
+### مثال:
+
+### المدخل:
+
+s = "A man, a plan, a canal: Panama"
+
+### الخطوات:
+
+- **تحويل الأحرف إلى صغيرة**: `"a man, a plan, a canal: panama"`
+
+- **إزالة الأحرف غير الأبجدية الرقمية**: `"amanaplanacanalpanama"`
+
+- **التحقق من التماثل**:
+
+- `"amanaplanacanalpanama"` يقرأ بنفس الشكل من الأمام والخلف.
+
+### الناتج:
+
+true
+
+### الهدف :
+
+- تعلم كيفية التعامل مع النصوص وتنظيفها باستخدام التعابير العادية.
+
+- تحسين المهارات في التحقق من التماثل.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `s = "A man, a plan, a canal: Panama"` | `true` |
+| `s = "race a car"` | `false` |
+| `s = " "` | `true` |
+| `s = "madam"` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f146670a-0790-4a28-ae1b-e7def7836892/view)
+
+## الحل
+
+```python tab="Python"
+import string
+def isPalindrome(s: str) -> bool:
+    x = s.lower()
+    word = "".join(char for char in x if char not in string.punctuation and char not in " ")
+    reversed_word = word[::-1]
+
+    if word == reversed_word:
+        return True
+    else:
+        return False
+```

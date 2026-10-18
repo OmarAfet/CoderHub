@@ -1,0 +1,42 @@
+---
+title: "مقارنة أطول عدد خانات لنصين"
+level: "easy"
+points: 5
+tags: ["Conditions","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تقوم باستقبال قيمتين نصية `string`. تقوم هذه الدالة بمقارنة عدد الخانات النصية لكل من هذين المدخلين ومن ثم تقوم بإرجاع العدد الأكبر لعدد الخانات.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `string1 = "Ahmad"`، `string2 = "Mohammad"` | `8` |
+| `string1 = "Khalid"`، `string2 = "Asma"` | `6` |
+| `string1 = "Osama"`، `string2 = "Hassan"` | `6` |
+| `string1 = "Ali"`، `string2 = "Nasser"` | `6` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c63dea25-2da8-43cd-b58d-aaf715c847d8/view)
+
+## الحل
+
+```python tab="Python"
+def returnStringLetters(string1: str, string2: str) -> int:
+    x = len(string1)
+    y = len(string2)
+    if x > y:
+        return x
+    else:
+        return y
+```
+
+```js tab="JavaScript"
+function returnStringLetters(string1, string2) {
+	return Math.max(string1.length, string2.length);
+}
+```

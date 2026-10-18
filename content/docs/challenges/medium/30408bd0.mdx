@@ -1,0 +1,45 @@
+---
+title: "تشابه الترتيب الأبجدي"
+level: "medium"
+points: 10
+tags: ["Algorithms","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قُم بكتابة دالة `function` تستقبل قيمتين نصية. تقوم الدالة بترتيب القيمتين النصية أبجدياً وإرجاع أطول حد تشابه بين القيمتين النصية . يتم أيضاً إزالة الأحرف المكررة في حد التشابه والإكتفاء بحرف واحد. في حال لم يُوجد تشابه بين القيمتين النصية، سيتم إرجاع القيمة `No matches found`.
+
+مثال: word1= xcbacbwdwa و word2 = xcefwdfecxd
+تقوم الدالة بترتيب هذه الكلمتين أبجدياً وحذف الحروف المتكررة منها لتصبح word1=abcdwx و word2=cdefwx. ستقوم الدالة بإرجاع أطول أول تشابه بين الكلمتين هذه `cd`. نلاحظ تم تجاهل التشابه `wx` لأن التشابه `ac` ظهر قبله.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word1 = "washing"`، `word2 = "waiting"` | `"ag"` |
+| `word1 = "me"`، `word2 = "meet"` | `"em"` |
+| `word1 = "Reem"`، `word2 = "Nouf"` | `"No matches found"` |
+| `word1 = "abcdefggghi"`، `word2 = "abcdefghirr"` | `"abcdefghi"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/30408bd0-d051-451b-8a5e-196c54101abb/view)
+
+## الحل
+
+```python tab="Python"
+def similarOrdered(word1: str, word2: str) -> str:
+    sorted_words = sorted([word1, word2])
+    sorted_words = [''.join(sorted(set(word))) for word in sorted_words]
+    longest_substring = ''
+    for i in range(len(sorted_words[0])):
+        for j in range(i+1, len(sorted_words[0])+1):
+            substring = sorted_words[0][i:j]
+            if substring in sorted_words[1] and len(substring) > len(longest_substring):
+                longest_substring = substring
+    if longest_substring:
+        return longest_substring
+    else:
+        return 'No matches found'
+```

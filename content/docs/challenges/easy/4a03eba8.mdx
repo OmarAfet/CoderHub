@@ -1,0 +1,37 @@
+---
+title: "دمج قيمتين نصية"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل قيمتين من نوع `string` ، وتقوم **بجمعهما وإرجاعهما** كقيمة واحدة مفصولة بمسافة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `name1 = "Keep"`، `name2 = "smiling"` | `"Keep smiling"` |
+| `name1 = "You"`، `name2 = "can"` | `"You can"` |
+| `name1 = "Hello"`، `name2 = "World!"` | `"Hello World!"` |
+| `name1 = "Good"`، `name2 = "job"` | `"Good job"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4a03eba8-1000-449b-8701-985989f71c4f/view)
+
+## الحل
+
+```python tab="Python"
+def concat_names(name1: str, name2: str) -> str:
+    return f'{name1} ' + name2
+```
+
+```js tab="JavaScript"
+function concat_names(name1, name2) {
+	return `${name1} ${name2}`;
+}
+```

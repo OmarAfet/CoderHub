@@ -1,0 +1,50 @@
+---
+title: "طرح عناصر مصفوفتين"
+level: "medium"
+points: 10
+tags: ["Algorithms","Math","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفتين من نوع `integer` ، وتقوم الـدالة `function` **بطرح العناصر** الموجودة في المصفوفة الأولى من العناصر الموجودة في المصفوفة الثانية، ثم تقوم بإرجاع مصفوفة من نوع `integer`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr1 = [2,4,88]`، `arr2 = [4,2,88]` | `[2,-2,0]` |
+| `arr1 = [-3,4,0]`، `arr2 = [93,22,7]` | `[96,18,7]` |
+| `arr1 = [7,8,2]`، `arr2 = [4,5,1]` | `[-3,-3,-1]` |
+| `arr1 = [19,29]`، `arr2 = [10,20]` | `[-9,-9]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4df423f8-d7ef-49bc-acfb-abd77452667d/view)
+
+## الحل
+
+```python tab="Python"
+def sub_arrays(arr1: list[int], arr2: list[int]) -> list[int]:
+    maxLength = 0
+    if len(arr1) > len(arr2):
+        maxLength = len(arr1)
+    else:
+        maxLength = len(arr2)
+
+    result = []
+    for i in range(0, maxLength):
+        result.append(arr2[i] - arr1[i])
+    return result
+```
+
+```js tab="JavaScript"
+function sub_arrays(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    result.push(arr2[i] - arr1[i]);
+  }
+  return result;
+}
+```

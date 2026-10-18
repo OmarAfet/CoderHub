@@ -1,0 +1,37 @@
+---
+title: "البحث عن العنصر في المصفوفة"
+level: "easy"
+points: 5
+tags: ["String","Loop","Conditions"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية  وحرف.  تقوم الدالة **بالبحث عن أول index مطابق للحرف المُدخل**  وإرجاع رقم `index` الخاص بذلك الحرف. تقوم الدالة بإرجاع القيمة **-1** في حال عدم وجود تطابق.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "cloud"`، `character = "u"` | `3` |
+| `word = "school"`، `character = "o"` | `3` |
+| `word = "sofa"`، `character = "k"` | `-1` |
+| `word = "car"`، `character = "r"` | `2` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4f20a8a2-1b36-4b9f-8fb9-0e2926ce50af/view)
+
+## الحل
+
+```python tab="Python"
+def search(word: str, character: str) -> int:
+    return word.find(character)
+```
+
+```js tab="JavaScript"
+function search(word, character) {
+	return word.indexOf(character);
+}
+```

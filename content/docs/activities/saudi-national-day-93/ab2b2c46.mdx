@@ -1,0 +1,51 @@
+---
+title: "التحقق من الرقم المثالي"
+level: "medium"
+points: 10
+languages: ["Python"]
+status: "solved"
+---
+
+## الوصف
+
+اكتب دالة function تستقبل عددًا صحيحًا موجبًا int وتحدد ما إذا كان عددًا مثاليًا أم لا. العدد المثالي يساوي مجموع قواسمه الصحيحة (باستثناء الرقم نفسه).
+
+المخرجات المتوقعة
+الاختبار 1
+
+المدخلات (Inputs)
+num = 6
+المخرجات (Outputs)
+true
+الاختبار 2
+
+المدخلات (Inputs)
+num = 28
+المخرجات (Outputs)
+true
+الاختبار 3
+
+المدخلات (Inputs)
+num = 12
+المخرجات (Outputs)
+false
+الاختبار 4
+
+المدخلات (Inputs)
+num = 14
+المخرجات (Outputs)
+false
+
+## الحل
+
+```python tab="Python"
+def perfect_Number_check(num: int) -> bool:
+    sum = 0
+    for i in range(1, num):
+        if num % i == 0:
+            sum += i
+    if sum == num:
+        return True
+    else:
+        return False
+```

@@ -1,0 +1,49 @@
+---
+title: "تجميع أجزاء النص"
+level: "hard"
+points: 20
+tags: ["Loop"]
+languages: ["Python"]
+date: "2022-06-02T11:51:17"
+status: "solved"
+---
+
+## الوصف
+
+قُم بكتابة دالة تستقبل ثلاث مُدخلات تحتوي قيم نصية  `A`, `B`, `C`. تقوم هذه الدالة بإرجاع القيمة `True` فقط في حال كانت قيمة `C` عبارة عن أجزاء مُرتبة من القيمتين `A` و `B`. في حال كانت القيمة `C` تحتوي على جزء غير متواجد في القيمتين `A` و `B`، أو متواجد بترتيب لا يتوافق مع الترتيب الأصلي في `A` و `B`، تقوم الدالة بإرجاع القيمة `False`.
+
+مثال:  
+`A` = `abc`, `B` = `dca` ,`C` = `abdcca`
+
+عند التفصيل في القيمة `C` نلاحظ أن القيمة `ab` تم اجتزائها من `A`، ومن ثم القيمة `dc` اُجتزئت من `B`، ومن ثم `c` من `A` مره أخرى، وأخيراً `a` من `B`.
+لا يهم الاجتزاء من أي قيمة يبدأ، ولا كمية الاجتزاء، المهم انه بنفس الترتيب المُتبع في القيمة الأصلية، ولا يزيد أو ينقص عن مجموع المتواجد في القيمتين `A` و `B`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `A = "wysn"`، `B = "showus"`، `C = "shwysowuns"` | `true` |
+| `A = "hsbxib"`، `B = "ywssg"`، `C = "hsywbxsisgb"` | `true` |
+| `A = "zh2g"`، `B = "wts"`، `C = "shwt2gs"` | `false` |
+| `A = "hsyhag"`، `B = "2b12"`، `C = "hsy2bhag1"` | `false` |
+| `A = "USfMSU"`، `B = "5YgZ9N5mR6ppfggzbzh7HTox85MwFtaIQDHfzJW8vc2G"`، `C = "5YgUSZf9NM5SmR6Uppfggzbzh7HTox84MwFtaIQDHfzJW8vc2G"` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/513b8f6a-bb73-4c7f-ab1c-fa1d63aaf2fc/view)
+
+## الحل
+
+```python tab="Python"
+def isInterleave(A: str, B: str, C: str) -> bool:
+    for i in A:
+        if i in C:
+            C = C.replace(i, '', 1)
+        else:
+            return False
+
+    for i in B:
+        if i in C:
+            C = C.replace(i, '', 1)
+        else:
+            return False
+    return True
+```

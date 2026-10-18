@@ -1,0 +1,31 @@
+---
+title: "ترتيب المصفوفة تصاعديا"
+level: "medium"
+points: 10
+tags: ["Lists","Numbers","Sorting"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة من نوع `integer` , وتقوم الـدالة `function` بترتيب عناصر المصفوفة من **الأصغر إلى الأكبر** وإرجاعها بعد عملية الترتيب
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `elements_array = [63,12,43,56,12]` | `[12,12,43,56,63]` |
+| `elements_array = [88,12,23,59,1,24]` | `[1,12,23,24,59,88]` |
+| `elements_array = [100,23,200,23,1]` | `[1,23,23,100,200]` |
+| `elements_array = [99,88,774,2]` | `[2,88,99,774]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/46dab9c7-3b55-48f1-8763-6ef4b30006da/view)
+
+## الحل
+
+```python tab="Python"
+def sort_array(elements_array: list[int]) -> list[int]:
+    return sorted(elements_array)
+```

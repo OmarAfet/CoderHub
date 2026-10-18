@@ -1,0 +1,44 @@
+---
+title: "النصوص المتشابهة"
+level: "easy"
+points: 5
+tags: ["Conditions","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين نصية  من نوع `string` وتقوم بالتحقق فيما إذا كانتا **متشابهتين** أم **غير متشابهتين**.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `name1 = "Anas"`، `name2 = "anas"` | `"غير متشابهتين"` |
+| `name1 = "Omer"`، `name2 = "Omar"` | `"غير متشابهتين"` |
+| `name1 = "Abdullah"`، `name2 = "Abdullah"` | `"متشابهتين"` |
+| `name1 = "Ayman"`، `name2 = "Mishal"` | `"غير متشابهتين"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4d794268-cf59-461d-803a-1a009ba50ff7/view)
+
+## الحل
+
+```python tab="Python"
+def is_same(name1: str, name2: str) -> str:
+    if name1 == name2:
+        return 'متشابهتين'
+    else:
+        return 'غير متشابهتين'
+```
+
+```js tab="JavaScript"
+function is_same(name1, name2) {
+	if (name1 === name2) {
+		return "متشابهتين";
+	} else {
+		return "غير متشابهتين";
+	}
+}
+```

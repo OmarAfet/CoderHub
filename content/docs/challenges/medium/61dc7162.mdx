@@ -1,0 +1,46 @@
+---
+title: "مجموعات العملات المعدنية"
+level: "medium"
+points: 10
+tags: ["Math","Lists","Numbers","Algorithms"]
+languages: ["Python","JavaScript"]
+date: "2023-02-20T11:11:21"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تقوم الدالة باستقبال عدد صحيح من نوع `integer` يمثل هذا الرقم المبلغ النهائي. وتستقبل مصفوفة متكونة من اعداد صحيحة `integer` وهذه المصفوفة تمثل العملات المعدنية المتوفرة. تقوم الدالة بحساب عدد الطرق الممكنة للوصول للمبلغ النهائي عن طريق جمع ارقام العملات المعدنية.
+
+إذا كانت المدخلات `coins = [2,5] `والمبلغ `amount=10` فإن الناتج سيكون 2 حيث بالإمكان انشاء التركيبات التالية: `[2,2,2,2]` و `[5,5] `كل تركيبة مجموعها يساوي  `المبلغ (amount) = 10 `
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `amount = 4`، `coins = [1,2]` | `3` |
+| `amount = 10`، `coins = [5,2,3]` | `4` |
+| `amount = 0`، `coins = [3,5,7]` | `1` |
+| `amount = 11`، `coins = [5,7]` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/61dc7162-1b11-46a6-b947-24b72bf86977/view)
+
+## الحل
+
+```python tab="Python"
+def coins_combinations(amount: int, coins: list[int]) -> int:
+    if amount == 0:
+        return 1
+    if not coins or amount < 0:
+        return 0
+    return coins_combinations(amount-coins[-1], coins) + coins_combinations(amount, coins[:-1])
+```
+
+```js tab="JavaScript"
+function coins_combinations(amount, coins) {
+	if (amount == 0) return 1;
+	if (amount < 0) return 0;
+	if (coins.length == 0) return 0;
+	return coins_combinations(amount - coins[0], coins) + coins_combinations(amount, coins.slice(1));
+}
+```

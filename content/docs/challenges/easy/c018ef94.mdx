@@ -1,0 +1,35 @@
+---
+title: "تحدي الجاذبية"
+level: "easy"
+points: 5
+tags: ["Lists"]
+languages: ["Python"]
+date: "2023-11-14T15:40:25"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة ``function``: تقوم الدالة باستقبال مصفوفة أعداد صحيحة من نوع ``integer``.
+كل خلية في هذه المصفوفة تمثل عدد المكعبات في هذا العامود، كما تقوم الدالة بالتحقق من عدد المكعبات في كل عامود وإحالتها إلى الأعمدة الأصغر. ‎
+
+
+![image](https://i.ibb.co/SQBqtJG/383cc55fefceeac300e8d90362dca986d56b436a.png)
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `columns = [3,2,1,2]` | `[1,2,2,3]` |
+| `columns = [2,3,8]` | `[2,3,8]` |
+| `columns = [1,1,1,1]` | `[1,1,1,1]` |
+| `columns = [4,5,6,3,2]` | `[2,3,4,5,6]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c018ef94-eb53-495f-b17e-1e8b874e3997/view)
+
+## الحل
+
+```python tab="Python"
+def gravity_flip(columns: list[int]) -> list[int]:
+  return sorted(columns)
+```

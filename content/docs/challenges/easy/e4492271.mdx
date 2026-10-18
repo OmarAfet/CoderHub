@@ -1,0 +1,45 @@
+---
+title: "جمع الأعداد الفردية في مصفوفة"
+level: "easy"
+points: 5
+tags: ["Math","Conditions"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة من نوع `integer`، تقوم الدالة **بجمع الأعداد الفردية فقط** وإرجاع النتيجة كعدد صحيح `integer`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [2,9,5,4,0]` | `14` |
+| `arr = [3,12,6]` | `3` |
+| `arr = [1,8,5,44]` | `6` |
+| `arr = [1,7,1]` | `9` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e4492271-ac28-483f-a211-2def7218be0a/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def sumOdd(arr: List[int]) -> int:
+    return sum([i for i in arr if i % 2 != 0])
+```
+
+```js tab="JavaScript"
+function sumOdd(arr) {
+	x = 0;
+	for (let i = 0; i < arr.length; i++) {
+		const e = arr[i];
+		if (e % 2 != 0) {
+			x += e;
+		}
+	}
+	return x;
+}
+```

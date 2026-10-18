@@ -1,0 +1,75 @@
+---
+title: "أطول سلسلة أرقام متناوبة"
+level: "medium"
+points: 10
+tags: ["String","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2023-02-20T11:14:05"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة function تستقبل قيمة نصية من نوع string. تقوم هذه الدالة بإيجاد أطول سلسلة فرعية بالتناوب بين أعداد فردية وأعداد زوجية. والمعنى من ذلك أن يجب ان تكون السلسلة مكونة من عدد زوجي ويتليه عدد فردي.. ولا يشترط في ذلك ان تبدأ السلسلة بعدد زوجي. فمن الممكن أن تبدأ بعدد زوجي أو فردي.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `digits = "2105787220351146"` | `"2105"` |
+| `digits = "1263654081858902"` | `"8185890"` |
+| `digits = "334090830025543"` | `"090"` |
+| `digits = "6769423178839463"` | `"67694"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/fb506202-f0e9-49eb-926e-0c66a8759dfb/view)
+
+## الحل
+
+```python tab="Python"
+def longestAlternatingSubstring(digits: str) -> str:
+    longest_substring = ""
+    current_substring = ""
+
+    for i in range(len(digits)):
+        if i > 0 and ((int(digits[i]) % 2) != (int(digits[i-1]) % 2)):
+            current_substring += digits[i]
+        else:
+            current_substring = digits[i]
+        
+        if len(current_substring) > len(longest_substring):
+            longest_substring = current_substring
+    
+    return longest_substring
+```
+
+```js tab="JavaScript"
+function longestAlternatingSubstring(digits) {
+    let longest = "";
+    let current = "";
+    let lastEven = false;
+    let lastOdd = false;
+    for (let i = 0; i < digits.length; i++) {
+        if (digits[i] % 2 == 0) {
+            if (lastEven) {
+                current = digits[i];
+            } else {
+                current += digits[i];
+            }
+            lastEven = true;
+            lastOdd = false;
+        } else {
+            if (lastOdd) {
+                current = digits[i];
+            } else {
+                current += digits[i];
+            }
+            lastEven = false;
+            lastOdd = true;
+        }
+        if (current.length > longest.length) {
+            longest = current;
+        }
+    }
+    return longest;
+}
+```

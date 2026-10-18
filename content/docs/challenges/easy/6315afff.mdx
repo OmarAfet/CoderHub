@@ -1,0 +1,71 @@
+---
+title: "حساب مساحة متوازي الأضلاع"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-08-18T14:05:02"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك مهندس معماري، وتحتاج إلى حساب مساحة متوازي الأضلاع لاستخدامه في تصميم بناء.
+يجب أن يكون العرض (**breadth**) والارتفاع (**height**) قيمًا موجبة لضمان أن الأبعاد صحيحة.
+إذا تم إدخال أي قيمة سالبة أو صفرية، ستتلقى رسالة خطأ تخبرك بأن **"Breadth and height must be positive"**.
+
+إذا كانت القيم المدخلة موجبة، يتم حساب مساحة متوازي الأضلاع باستخدام الصيغة:
+
+**Area = Breadth × Height**
+
+### **قواعد التحدي:**
+
+- إذا كانت أي من القيمتين **breadth** أو **height** أقل من أو تساوي صفرًا، يجب طباعة الخطأ:
+**"java.lang.Exception: Breadth and height must be positive"**.
+
+- إذا كانت القيم موجبة، يتم حساب مساحة متوازي الأضلاع باستخدام الصيغة المذكورة أعلاه.
+
+مثال 1:
+
+🧪 **الإدخال:**
+
+breadth = 1
+
+height = 3
+
+📤 **الإخراج:**
+
+3
+
+مثال 2 :
+
+🧪 **الإدخال:**
+
+breadth = -1
+
+height = 2
+
+📤 **الإخراج:**
+
+java.lang.Exception: Breadth and height must be positive
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `breadth = 1`، `height = 3` | `"3"` |
+| `breadth = -1`، `height = 2` | `"java.lang.Exception: Breadth and height must be positive"` |
+| `breadth = 5`، `height = 10` | `"50"` |
+| `breadth = 0`، `height = 7` | `"java.lang.Exception: Breadth and height must be positive"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/6315afff-6b91-4042-9f6a-31bd73fbef5d/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def calculateParallelogramArea(breadth: int, height: int) -> str:
+    if breadth <= 0 or height <= 0:
+        return 'java.lang.Exception: Breadth and height must be positive'
+    return str(breadth * height)
+```

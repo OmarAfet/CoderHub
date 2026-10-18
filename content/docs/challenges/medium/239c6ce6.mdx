@@ -1,0 +1,34 @@
+---
+title: "ترتيب المصفوفة حسب الشرط"
+level: "medium"
+points: 10
+tags: ["Numbers","Lists","Sorting"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل قيمتين، القيمة الأولى تعبر عن مصفوفة `array` من نوع `integer` ، والقيمة الثانية  من نوع `string` تعبر هذة القيمة  عن رمز لتعيين ترتيب المصفوفة `array` فإذا كان الرمز المدخل **B** تقوم الـدالة  `function` بترتيب عناصر  الـمصفوفة  `array` من **الأكبر إلى الأصغر** وإذا كان الرمز **S** تقوم الـدالة `function` بالترتيب من **الأصغر إلى الأكبر**، ثم تقوم بإرجاع المصفوفة `array` بعد عملية الترتيب
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `my_array = [63,12,43,56,12]`، `typeParam = "B"` | `[63,56,43,12,12]` |
+| `my_array = [88,12,23,59,1,24]`، `typeParam = "S"` | `[1,12,23,24,59,88]` |
+| `my_array = [100,23,200,23,1]`، `typeParam = "B"` | `[200,100,23,23,1]` |
+| `my_array = [99,88,774,2]`، `typeParam = "S"` | `[2,88,99,774]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/239c6ce6-51fa-440a-adab-5285b9a2d052/view)
+
+## الحل
+
+```python tab="Python"
+def sort_array(my_array: list[int], typeParam: str) -> list[int]:
+    if typeParam == 'S':
+        return sorted(my_array)
+    if typeParam == 'B':
+        return sorted(my_array, reverse=True)
+```

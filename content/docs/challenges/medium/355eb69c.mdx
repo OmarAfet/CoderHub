@@ -1,0 +1,80 @@
+---
+title: "سباق أيام الري"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-07-22T14:51:50"
+status: "pending"
+---
+
+## الوصف
+
+المزارع “سعيد” يملك حقلاً مزروعاً بمحاصيل موسميّة، ويعتمد على شبكة بسيطة من خراطيم الري.
+
+تصله بيانات يوميّة عن كمية المياه التي تحتاجها النباتات (باللترات)،
+
+ومتاح له كلّ يوم مخزون ثابت من الماء. يريد سعيد أن يجد أطول فترة متتالية (أيامًا متواصلة)
+
+يستطيع فيها ريّ الحقل دون نفاد كمية الماء المتاحة في أيّ يوم من تلك الفترة.
+
+المطلوب برمجيًّا:
+
+الدالة:
+
+maxIrrigationPeriod(irrigation: int[], water: int) → int
+
+- **المدخلات:**
+
+- `irrigation`: مصفوفة عددية، كل عنصر يمثل استهلاك المياه (لترًا) في يوم معين.
+
+- `water`: عدد صحيح يعبّر عن كمية المياه المتوفرة يوميًا (لترًا).
+
+- **الإخراج:**
+
+- عدد صحيح يعبّر عن أطول عدد من الأيام المتتالية التي يكون فيها مجموع استهلاك تلك الأيام ≤ `water`.
+
+مثال:
+
+const irrigation = [1, 2, 1, 0, 1];
+
+const water = 4;
+
+maxIrrigationPeriod(irrigation, water);
+
+أفضل فترة متتالية هي الأيام من الفهرس 0 إلى 3:
+
+1 + 2 + 1 + 0 = 4 → طول الفترة = 4 أيام
+
+لذا تُعيد الدالة: 4
+
+بهذا المثال، نرى كيف نجمع الاستهلاكات اليومية في نافذة متحركة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `irrigation = [1,2,3,4,5]`، `water = 5` | `2` |
+| `irrigation = [2,2,2]`، `water = 3` | `1` |
+| `irrigation = [1,1,1,1]`، `water = 3` | `3` |
+| `irrigation = []`، `water = 5` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/355eb69c-bf9c-4f2e-80d5-b85e11b5d18b/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+
+def maxIrrigationPeriod(irrigation: List[int], water: int) -> int:
+    max_len = 0
+    left = 0
+    curr_sum = 0
+    for right in range(len(irrigation)):
+        curr_sum += irrigation[right]
+        while curr_sum > water and left <= right:
+            curr_sum -= irrigation[left]
+            left += 1
+        max_len = max(max_len, right - left + 1)
+    return max_len
+```

@@ -1,0 +1,41 @@
+---
+title: "اطول تكرار"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python"]
+date: "2023-11-14T14:40:19"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل نص `string` ومهمتك هي العثور على أطول تكرار للحروف في النص .
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `s = "AAAAAAAAAA"` | `10` |
+| `s = "AAAABBBCCD"` | `4` |
+| `s = "AMMMDDCCCMD"` | `3` |
+| `s = "MZSDDDD"` | `4` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/565d0165-2dc1-423b-90dc-4eb2c89b44a2/view)
+
+## الحل
+
+```python tab="Python"
+def repetitions(s: str) -> int:
+  max_count = 0
+  count = 1
+
+  for i in range(1, len(s)):
+    if s[i] == s[i-1]:
+      count += 1
+    else:
+      max_count = max(max_count, count)
+      count = 1
+
+  return max(max_count, count)
+```

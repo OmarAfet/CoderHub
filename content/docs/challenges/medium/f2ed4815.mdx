@@ -1,0 +1,38 @@
+---
+title: "ارجاع الحرف الأوسط"
+level: "medium"
+points: 10
+tags: ["Searching","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل قيمة نصية من نوع `string` تقوم الدالة  `function` **باستخراج الحرف الموجود في وسط الكلمة**  ثم قم بإرجاع الحرف من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "test"` | `"es"` |
+| `word = "z"` | `"z"` |
+| `word = "salem"` | `"l"` |
+| `word = "like"` | `"ik"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f2ed4815-d856-4c89-9ae5-9ecb8bdae9e7/view)
+
+## الحل
+
+```python tab="Python"
+def middle_char(word: str) -> str:
+    result = (len(word) / 2)
+
+    if result % 1 == 0:
+        result = word[int(result) - 1:int(result) + 1]
+    else:
+        result = word[int(result)]
+
+    return result
+```

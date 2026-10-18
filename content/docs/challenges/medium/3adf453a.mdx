@@ -1,0 +1,58 @@
+---
+title: "صيغة البريد الإلكتروني"
+level: "medium"
+points: 10
+tags: ["Conditions","Algorithms","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل قيمة نصية من نوع `string`. تقوم الدالة بالتحقق ما إذا كانت القيمة النصية تحتوي على بريد إلكتروني صحيح أم لا، عن طريق إرجاع قيمة من نوع `boolean`.
+
+**شروط البريد الإلكتروني الصحيح**
+
+1. أن لا يبدأ رمز 
+
+2. أن يحتوي الجزء الأول على خانة على الأقل (ما قبل الرمز `@`)
+
+3. أن يحتوي على الرمز `@` 
+
+4. أن يتبع رمز `@` خانة على الأقل
+
+5. أن يتبعه بعد ذلك بالرمز `.`
+
+6. أن يتبع الرمز `.` بخانتين على الأقل 
+
+7. لا مانع من أن يحتوي الجزء الذي يسبق `@` على الرموز التالية `_.-`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `email = "example@example.com"` | `true` |
+| `email = "example@example.c"` | `false` |
+| `email = "example@com"` | `false` |
+| `email = "@example.com"` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/3adf453a-35c1-4258-beaf-eae8393c4be0/view)
+
+## الحل
+
+```python tab="Python"
+import re
+def isEmail(email: str) -> bool:
+    if not isinstance(email, str) or not email:
+        return False
+    pattern = r'^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,4}$'
+    return bool(re.match(pattern, email))
+```
+
+```js tab="JavaScript"
+function isEmail(email) {
+	let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+	return emailRegex.test(email);
+}
+```

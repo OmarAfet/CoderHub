@@ -1,0 +1,38 @@
+---
+title: "الجذر التكعيبي"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer`. تقوم الدالة **بإيجاد الجذر التكعيبي** له وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 8` | `2` |
+| `num = 27` | `3` |
+| `num = 0` | `0` |
+| `num = 1` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/72d2a68b-f17d-41ce-8889-6174031f7fd8/view)
+
+## الحل
+
+```python tab="Python"
+import math
+def cubicRoot(num: int) -> float:
+    return math.pow(num, 1/3)
+```
+
+```js tab="JavaScript"
+function cubicRoot(num) {
+	return Math.cbrt(num);
+}
+```

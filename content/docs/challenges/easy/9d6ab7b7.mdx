@@ -1,0 +1,40 @@
+---
+title: "أقصى عدد على اليسار"
+level: "easy"
+points: 5
+tags: ["Searching","Numbers","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل قيمة نصية من نوع `string` ، تقوم الـدالة `function` **باستخراج أول أقصى** **رقم على اليسار** ، ثم تقوم الدالة بارجاع النتيجة من نوع `integer`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "Welcome2back"` | `2` |
+| `strParam = "5"` | `5` |
+| `strParam = "9753"` | `9` |
+| `strParam = "nora30@gmail.com"` | `3` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/9d6ab7b7-fefa-40e5-87f8-6128612636c0/view)
+
+## الحل
+
+```python tab="Python"
+def left_digit(strParam: str) -> int:
+    for char in strParam:
+        if char.isdigit():
+            return int(char)
+    return None
+```
+
+```js tab="JavaScript"
+function left_digit(strParam) {
+  return parseInt(strParam.match(/\d/)[0]);
+}
+```

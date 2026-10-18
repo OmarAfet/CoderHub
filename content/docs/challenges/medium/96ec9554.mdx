@@ -1,0 +1,31 @@
+---
+title: "مقارنة آخر حرفين من النص"
+level: "medium"
+points: 10
+tags: ["String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيميتين نصية تقوم الدالة بمقارنة آخر حرفين من كل قيمة ثم تقوم الدالة بإرجاع النتيجة من نوع `boolean` بالشكل التالي: `true` اذا اخر حرفين متشابهين، `false` اذا كانوا مختلفين.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `s1 = "abc"`، `s2 = "abc"` | `true` |
+| `s1 = "abc"`، `s2 = "abcc"` | `false` |
+| `s1 = "there"`، `s2 = "their"` | `false` |
+| `s1 = "plant"`، `s2 = "planet"` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/96ec9554-a3ce-4783-9bef-ecf225bc318e/view)
+
+## الحل
+
+```python tab="Python"
+def compare_two_words(s1: str, s2: str) -> bool:
+    return s1[-2:] == s2[-2:]
+```

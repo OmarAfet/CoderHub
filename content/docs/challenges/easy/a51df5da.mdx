@@ -1,0 +1,45 @@
+---
+title: "الجمع التسلسلي"
+level: "easy"
+points: 5
+tags: ["Algorithms","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer`. تقوم الـدالة **بجمع جميع الأعداد من 1 إلى الرقم الذي تم تمريره** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 3` | `6` |
+| `num = 13` | `91` |
+| `num = 15` | `120` |
+| `num = 9` | `45` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/a51df5da-c7af-430d-a4f6-9812c6fb9c2e/view)
+
+## الحل
+
+```python tab="Python"
+def number_sum(num: int) -> int:
+    x = []
+    for i in range(1, num + 1):
+        x.append(i)
+
+    return sum(x)
+```
+
+```js tab="JavaScript"
+function number_sum(num) {
+	x = 0;
+	for (let i = 1; i <= num; i++) {
+		x += i;
+	}
+	return x;
+}
+```

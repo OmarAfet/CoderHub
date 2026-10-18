@@ -1,0 +1,39 @@
+---
+title: "مجموع أدنى رقمين في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Conditions","Loop","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer`. تقوم الدالة **بجمع أدنى رقمين في المصفوفة** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [2,5,6,7,3]` | `5` |
+| `arr = [4,3,60,9]` | `7` |
+| `arr = [50,1,1,4]` | `2` |
+| `arr = [7,8,60,100]` | `15` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/00e6ff08-d41c-4f18-a2e9-a50f0b935d0e/view)
+
+## الحل
+
+```python tab="Python"
+def sum_two_smallest_nums(arr: list[int]) -> int:
+    arr.sort()
+    return arr[0] + arr[1]
+```
+
+```js tab="JavaScript"
+function sum_two_smallest_nums(arr) {
+    arr = arr.sort((a, b) => a - b);
+    return arr[0] + arr[1];
+}
+```

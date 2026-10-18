@@ -1,0 +1,54 @@
+---
+title: "استبدال The"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة `function` تستقبل قيمة نصية من نوع `string` تقوم الـدالة `function` **باستبدال the الى a أو an** حسب القاعدة الإنجليزية ثم تقوم بإرجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `txt = "Here is the plan"` | `"Here is a plan"` |
+| `txt = "I ate the apple"` | `"I ate an apple"` |
+| `txt = "I go to the mall"` | `"I go to a mall"` |
+| `txt = "I want the orange"` | `"I want an orange"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d01b2123-dd71-4c2b-abe8-4ccf7c342b60/view)
+
+## الحل
+
+```python tab="Python"
+def replaceThe(txt: str) -> str:
+    words = txt.split()
+
+    for i, word in enumerate(words):
+        if word == 'the':
+            if words[i+1][0] in ['a', 'e', 'i', 'o', 'u']:
+                words[i] = 'an'
+            else:
+                words[i] = 'a'
+
+    return ' '.join(words)
+```
+
+```js tab="JavaScript"
+function replaceThe(txt) {
+	let arr = txt.split(" ");
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] === "the" && arr[i + 1][0].match(/[aeiou]/)) {
+			arr[i] = "an";
+		} else if (arr[i] === "the") {
+			arr[i] = "a";
+		}
+	}
+	return arr.join(" ");
+}
+```

@@ -1,0 +1,37 @@
+---
+title: "عدد عناصر المصفوفة"
+level: "easy"
+points: 5
+tags: ["Lists","Searching","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة `function` تستقبل مصفوفة `array ` مكونة من أعداد صحيحة من نوع `integer`، ثم تقوم الدالة  بإرجاع **عدد عناصر لتلك المصفوفة**.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `my_array = [5,12,3,51]` | `4` |
+| `my_array = [19,12]` | `2` |
+| `my_array = [10,24,45,123,124,982,51,42,124,19]` | `10` |
+| `my_array = [10]` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/ddfebada-6c4d-4734-9e5a-0b3af83d56b6/view)
+
+## الحل
+
+```python tab="Python"
+def num_elements(my_array: list[int]) -> int:
+    return len(my_array)
+```
+
+```js tab="JavaScript"
+function num_elements(my_array) {
+	return my_array.length;
+}
+```

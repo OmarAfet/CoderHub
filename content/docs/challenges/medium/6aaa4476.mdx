@@ -1,0 +1,38 @@
+---
+title: "حساب عدد الكلمات"
+level: "medium"
+points: 10
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string`. تقوم هذه الدالة **بحساب عدد الكلمات** في القيمة النصية ، ثم إرجاع عدد الكلمات من نوع `integer`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `txt = "Plant hope in the hearts of others"` | `7` |
+| `txt = "Nora is a very ambitious person"` | `6` |
+| `txt = "fine, Thank you"` | `3` |
+| `txt = "ok"` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/6aaa4476-8067-473e-b7dc-230fe955f6ba/view)
+
+## الحل
+
+```python tab="Python"
+def countWords(txt: str) -> int:
+    return len(txt.split(" "))
+```
+
+```js tab="JavaScript"
+function countWords(txt) {
+	let words = txt.split(" ");
+	return words.length;
+}
+```

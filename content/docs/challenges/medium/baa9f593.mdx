@@ -1,0 +1,31 @@
+---
+title: "تحويل رقم ثماني إلى رقم عشري"
+level: "medium"
+points: 10
+tags: ["Numbers","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل متغير من نوع `int`  يعبر عن قيمة ثمانية `octal number`، ثم تقوم الدالة بإرجاع النتيجة بعد التحويل الى قيمة عشرية `decimal number` بنوع `int`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `octal_number = 5252` | `2730` |
+| `octal_number = 1534` | `860` |
+| `octal_number = 412` | `266` |
+| `octal_number = 1000` | `512` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/baa9f593-afa7-4dc2-bb5c-60df19f644fd/view)
+
+## الحل
+
+```python tab="Python"
+def oct_to_dec(octal_number: int) -> int:
+	return int(str(octal_number), 8)
+```

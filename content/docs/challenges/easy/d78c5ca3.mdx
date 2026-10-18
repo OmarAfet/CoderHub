@@ -1,0 +1,76 @@
+---
+title: "قيمة العلم السعودي"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-03-11T22:13:51"
+status: "solved"
+---
+
+## الوصف
+
+في يوم العلم السعودي، يحتفل الجميع بروح الوطنية والتاريخ العريق للمملكة. يُظهر العلم السعودي مزيجاً من العناصر الرمزية التي تعبر عن قيم وهوية المملكة، مثل اللون الأخضر الذي يرمز إلى الخصوبة والنماء، والسيف الذي يمثل القوة والعدالة، والخط العربي الأنيق الذي يعكس جمال التراث. في هذا التحدي، يُطلب منك كتابة دالة تُدعى `calculateSaudiFlagScore`، حيث تستقبل الدالة مصفوفة من العناصر الرمزية (على سبيل المثال: "Green" أو "Sword" أو "Arabic Calligraphy" أو "Palm") وتُعيد مجموع النقاط بناءً على قيمة كل عنصر.
+
+**كيفية عمل الدالة:**
+
+- يُعطى لكل عنصر من العناصر رموز محددة مسبقاً:
+
+- "Green": 10 نقطة.
+
+- "Sword": 15 نقطة.
+
+- "Arabic Calligraphy": 20 نقطة.
+
+- "Palm": 5 نقطة.
+
+- أي عنصر آخر: 0 نقطة.
+
+- تُحسب الدالة إجمالي النقاط بجمع نقاط جميع العناصر.
+
+- تُعاد النتيجة كعدد صحيح يمثل مجموع النقاط.
+
+### **مثال :**
+
+إذا كانت المصفوفة المدخلة هي:
+
+["Green", "Sword", "Arabic Calligraphy"]
+
+فإن:
+
+- النقاط = 10 (Green) + 15 (Sword) + 20 (Arabic Calligraphy) = 45.
+
+- النتيجة المتوقعة: **45**
+
+بهذا التحدي، يمكنك تقييم "قيمة" العناصر الرمزية في علم المملكة بطريقة بسيطة تعكس أهمية كل رمز في الهوية الوطنية.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `elements = ["Green"]` | `10` |
+| `elements = ["Sword"]` | `15` |
+| `elements = ["Arabic Calligraphy"]` | `20` |
+| `elements = ["Green","Sword"]` | `25` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d78c5ca3-5f3e-4b6f-9e2e-b23175960bde/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def calculateSaudiFlagScore(elements: List[str]) -> int:
+    words = {
+        "Arabic Calligraphy": 20,
+        "Sword": 15,
+        "Green": 10,
+        "Palm": 5,
+    }
+    
+    score = 0
+    for e in elements:
+        if e in words.keys():
+            score += words[e]
+            
+    return score
+```

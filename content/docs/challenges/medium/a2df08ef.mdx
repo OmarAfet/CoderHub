@@ -1,0 +1,36 @@
+---
+title: "تعديل صيغة التاريخ"
+level: "medium"
+points: 10
+tags: ["Date","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل متغير من نوع `string` بالشكل `yyyy-mm-dd`، ثم تقوم الدالة بإرجاع النتيجة من نوع `string` **بعد القيام بتغير الشكل الى `dd-mm-yyyy`**
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `date = "2020-01-01"` | `"01-01-2020"` |
+| `date = "2021-01-01"` | `"01-01-2021"` |
+| `date = "1954-09-01"` | `"01-09-1954"` |
+| `date = "2000-12-07"` | `"07-12-2000"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/a2df08ef-faa1-4aaf-bbd5-66f7e021855a/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def date_formating(date: str) -> str:
+    d = date.split("-")
+    r = []
+    for i in d[::-1]:
+        r.append(i)
+    return "-".join(r)
+```

@@ -1,0 +1,37 @@
+---
+title: "تحويل  النسبة المئوية"
+level: "easy"
+points: 5
+tags: ["Math","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` **تمثل النسبة المئوية**. تقوم الدالة **بتحويل النسبة المئوية إلى عدد عشري** وإرجاع النتيجة كقيمة من نوع `float`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `percentage = "30%"` | `0.3` |
+| `percentage = "9%"` | `0.09` |
+| `percentage = "84%"` | `0.84` |
+| `percentage = "59%"` | `0.59` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e6fd3d99-fe09-44d8-9117-3cb795727784/view)
+
+## الحل
+
+```python tab="Python"
+def convertPercent(percentage: str) -> float:
+    return int(percentage.replace("%", "")) / 100
+```
+
+```js tab="JavaScript"
+function convertPercent(percentage) {
+	return Number(percentage.replace("%", "")) / 100;
+}
+```

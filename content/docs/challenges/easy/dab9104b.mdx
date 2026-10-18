@@ -1,0 +1,44 @@
+---
+title: "تحديد نوع الرقم المدخل"
+level: "easy"
+points: 5
+tags: ["String","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer`، تقوم الدالة بإرجاع القيمة `odd` في حال كان العدد فردي، والقيمة `even` في حال العدد زوجي.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 1` | `"odd"` |
+| `num = 4` | `"even"` |
+| `num = 200` | `"even"` |
+| `num = 43` | `"odd"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/dab9104b-524a-4e86-9586-1d72e9ca910d/view)
+
+## الحل
+
+```python tab="Python"
+def isEvenOrOdd(num: int) -> str:
+    if num % 2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+```
+
+```js tab="JavaScript"
+function isEvenOrOdd(num) {
+	if (num % 2 == 0) {
+		return "even";
+	} else {
+		return "odd";
+	}
+}
+```

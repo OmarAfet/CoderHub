@@ -1,0 +1,31 @@
+---
+title: "تحويل رقم ثماني إلى رقم ست عشري"
+level: "medium"
+points: 10
+tags: ["Algorithms","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل متغير من نوع `int`  يعبر عن قيمة ثمانية `octal number`، ثم تقوم الدالة  بإرجاع النتيجة بعد التحويل الى قيمة ست عشرية `hexadecimal number` بنوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `octal_number = 5252` | `"AAA"` |
+| `octal_number = 777` | `"1FF"` |
+| `octal_number = 123` | `"53"` |
+| `octal_number = 1000` | `"200"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/02c2b94c-20f7-4c79-a90d-d43b67234ec7/view)
+
+## الحل
+
+```python tab="Python"
+def oct_to_hex(octal_number: int) -> str:
+    return (hex(int(str(octal_number), 8))[2:]).upper()
+```

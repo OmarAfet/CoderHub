@@ -1,0 +1,38 @@
+---
+title: "محيط الدائرة"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد عشري يُمثل نصف قطر الدائرة. تقوم الدالة **بحساب محيط الدائرة** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `radius = 2` | `12.56637` |
+| `radius = 3.1` | `19.47787` |
+| `radius = 4.9` | `30.78761` |
+| `radius = 5` | `31.41593` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/66073bf7-c41a-4a77-8ce3-f33244e65091/view)
+
+## الحل
+
+```python tab="Python"
+import math
+def calculate_circumference(radius: float) -> float:
+    return radius * (math.pi*2)
+```
+
+```js tab="JavaScript"
+function calculate_circumference(radius) {
+	return 2 * Math.PI * radius;
+}
+```

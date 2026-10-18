@@ -1,0 +1,61 @@
+---
+title: "تحويل الأرقام إلى نصوص"
+level: "hard"
+points: 20
+tags: ["Numbers","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد من نوع `integer` بين 0 و 999 ، تقوم الدالة **بتحويل هذه الأرقام إلى كتابة باللغة الإنجليزية** ثم قم بارجاع النتيجة من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `n = 703` | `"seven hundred three"` |
+| `n = 999` | `"nine hundred ninety-nine"` |
+| `n = 460` | `"four hundred sixty"` |
+| `n = 20` | `"twenty"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/506c93ea-b484-4765-a0de-a3d5a1a8d79e/view)
+
+## الحل
+
+```python tab="Python"
+def numToEng(n: int) -> str:
+    digits = ['zero', 'one', 'two', 'three', 'four',
+              'five', 'six', 'seven', 'eight', 'nine']
+
+    tens = ['', '', 'twenty', 'thirty', 'forty',
+            'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+
+    teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
+             'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+    result = ''
+
+    if n == 0:
+        return 'zero'
+
+    if n >= 100:
+        result += digits[n // 100] + ' hundred '
+        n %= 100
+
+    if n >= 10:
+        if n < 20:
+            result += teens[n - 10]
+        else:
+            if digits[n % 10] == 'zero':
+                result += tens[n // 10]
+            else:
+                result += tens[n // 10] + '-' + digits[n % 10]
+
+    else:
+        result += digits[n]
+
+    return result
+```

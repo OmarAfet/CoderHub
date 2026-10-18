@@ -1,0 +1,32 @@
+---
+title: "إرجاع أكبر وأصغر قيمة في المصفوفة"
+level: "medium"
+points: 10
+tags: ["Searching","Numbers"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer` وتقوم بإرجاع **أكبر عدد وأصغر عدد** في المصفوفة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `array_values = [5,1,2,4,9,10,200]` | `[200,1]` |
+| `array_values = [500,123,52,123,22]` | `[500,22]` |
+| `array_values = [1,1,2,5,2,5,8]` | `[8,1]` |
+| `array_values = [7,9,12,100,244]` | `[244,7]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d4278c7b-0b4b-4c2d-998f-fa9822e918bb/view)
+
+## الحل
+
+```python tab="Python"
+def largest_smallest(array_values: list[int]) -> list[int]:
+    result = sorted(array_values)
+    return [result[-1], result[0]]
+```

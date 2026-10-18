@@ -1,2 +1,23 @@
-playground.html
-challenges-ui
+# deps
+/node_modules
+
+# generated content
+.source
+
+# build
+/.next/
+/out/
+*.tsbuildinfo
+next-env.d.ts
+
+# untracked 2023 solution files left on disk (see README)
+/challenges/
+.zed/
+.playwright-mcp/
+
+# misc
+.DS_Store
+*.pem
+.env*.local
+.vercel
+.env*

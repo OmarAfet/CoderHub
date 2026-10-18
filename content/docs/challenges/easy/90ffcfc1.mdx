@@ -1,0 +1,44 @@
+---
+title: "طباعة سلسلة من الأرقام"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل عدد من نوع `integer` ، وتقوم الـدالة `function` **بطباعة الأرقام من صفر إلى نفس العدد المدخل** كقيمة نصية من نوع `string`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 4` | `"0 1 2 3 4"` |
+| `number = 8` | `"0 1 2 3 4 5 6 7 8"` |
+| `number = 9` | `"0 1 2 3 4 5 6 7 8 9"` |
+| `number = 0` | `"0"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/90ffcfc1-a55b-4f11-b52b-e5f6894cfea2/view)
+
+## الحل
+
+```python tab="Python"
+def numbers_range(number: int) -> str:
+    x = ''
+    for i in range(number + 1):
+        x += str(i) + ' '
+    return x[:-1]
+```
+
+```js tab="JavaScript"
+function numbers_range(number) {
+	x = [];
+	for (let i = 0; i <= number; i++) {
+		x.push(i);
+	}
+	return x.join(" ");
+}
+```

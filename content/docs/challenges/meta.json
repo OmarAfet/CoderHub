@@ -1,0 +1,10 @@
+{
+  "title": "التحديات",
+  "icon": "Code",
+  "pages": [
+    "easy",
+    "medium",
+    "hard",
+    "..."
+  ]
+}

@@ -1,0 +1,37 @@
+---
+title: "تمرير قيمة الأُس"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين صحيحين `integer`، القيمة الأولى تُمثل الرقم والقيمة الثانية تُمثل الأُس. تقوم الدالة بحساب الأُس لذلك الرقم وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 1`، `exponent = 3` | `1` |
+| `number = 9`، `exponent = 5` | `59049` |
+| `number = -4`، `exponent = 8` | `65536` |
+| `number = 0`، `exponent = 99` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/5619aa4f-a77d-424c-ab63-9df21987c48c/view)
+
+## الحل
+
+```python tab="Python"
+def exponent_x(number: int, exponent: int) -> int:
+    return number ** exponent
+```
+
+```js tab="JavaScript"
+function exponent_x(number, exponent) {
+	return number ** exponent;
+}
+```

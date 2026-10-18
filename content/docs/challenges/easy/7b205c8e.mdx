@@ -1,0 +1,47 @@
+---
+title: "تكرار النص"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين، قيمة نصية  `string` وعدد صحيح موجب `integer`. تقوم الدالة **بتكرار النص المدخل** بحسب العدد الذي تم تمريره.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "Hi"`، `n = 2` | `"Hi Hi"` |
+| `word = "Developers"`، `n = 3` | `"Developers Developers Developers"` |
+| `word = "Red"`، `n = 1` | `"Red"` |
+| `word = "Great"`، `n = 5` | `"Great Great Great Great Great"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7b205c8e-278f-4671-8a07-a187736db74d/view)
+
+## الحل
+
+```python tab="Python"
+def word_repeat(word: str, n: int) -> str:
+    if (' ' in word) == False:
+        word = word + ' '
+        x = word * n
+        return x[:-1]
+    else:
+        x = word * n
+        return x[:-1]
+```
+
+```js tab="JavaScript"
+function word_repeat(word, n) {
+	x = "";
+	for (let i = 0; i < n; i++) {
+		x += `${word} `;
+	}
+	return x.slice(0, -1);
+}
+```

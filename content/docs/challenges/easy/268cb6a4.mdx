@@ -1,0 +1,52 @@
+---
+title: "مجموع المصفوفة"
+level: "easy"
+points: 5
+tags: ["Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-06-01T13:25:26"
+status: "solved"
+---
+
+## الوصف
+
+قُم بكتابة دالة تستقبل مصفوفة من 4 أرقام. تقوم الدالة بحساب مجموع عناصر تلك المصفوفة وإرجاع النتيجة. في حال كان أحد أرقام المصفوفة يساوي 7، فجميع الأرقام بعد ذلك الرقم لا يتم احتسابه في المجموع الكلي.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `lst = [1,2,3,4]` | `10` |
+| `lst = [0,7,12,67]` | `0` |
+| `lst = [23,43,27,87,67]` | `247` |
+| `lst = [84,469]` | `553` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/268cb6a4-b193-4650-a89f-1b09966827ed/view)
+
+## الحل
+
+```python tab="Python"
+def calculate_sum(lst: list[int]) -> int:
+    result = 0
+
+    for i in lst:
+        result += i
+        if i == 7:
+            return 0
+        
+    return result
+```
+
+```js tab="JavaScript"
+function calculate_sum(lst) {
+	let sum = 0;
+	for (let i = 0; i < lst.length; i++) {
+		if (lst[i] == 7) {
+			break;
+		} else {
+			sum += lst[i];
+		}
+	}
+	return sum;
+}
+```

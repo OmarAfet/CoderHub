@@ -1,0 +1,37 @@
+---
+title: "محيط متوازي الأضلاع"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين عشريين يُمثلان طول ضلع متوازي الأضلاع وقاعدته. تقوم الدالة **بحساب محيط متوازي الأضلاع** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `base_value = 5`، `length = 7` | `24` |
+| `base_value = 4`، `length = 7.7` | `23.4` |
+| `base_value = 9.8`، `length = 19.8` | `59.2` |
+| `base_value = 6`، `length = 7` | `26` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2cac2ded-b7d1-4ab2-9890-849611572175/view)
+
+## الحل
+
+```python tab="Python"
+def perimeter_of_prallelogram(base_value: float, length: float) -> float:
+    return 2 * (base_value + length)
+```
+
+```js tab="JavaScript"
+function perimeter_of_prallelogram(base_value, length) {
+	return 2 * (base_value + length);
+}
+```

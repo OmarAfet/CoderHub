@@ -1,0 +1,35 @@
+---
+title: "جمع عددين داخل قيمة نصية"
+level: "hard"
+points: 20
+tags: ["Math","Lists"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين نصية من نوع `string` ، في حال كانت القيمتين المدخلتين تحتوي على أعداد تقوم الدالة **بجمع الأعداد** و إرجاعها كقيمة نصية ، و في حال كانت أحد المدخلات تحتوي على أحرف تقوم بإرجاع `-1` كقيمة نصية
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num1 = "4"`، `num2 = "6"` | `"10"` |
+| `num1 = "5"`، `num2 = "hi"` | `"-1"` |
+| `num1 = "1"`، `num2 = "0"` | `"1"` |
+| `num1 = "2"`، `num2 = "1"` | `"3"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/033163c2-91be-4f1b-b0c0-01aff0811448/view)
+
+## الحل
+
+```python tab="Python"
+def addStrNums(num1: str, num2: str) -> str:
+    if not num1.isdigit() or not num2.isdigit():
+        return '-1'
+    else:
+        x = int(num1) + int(num2)
+        return str(x)
+```

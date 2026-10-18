@@ -1,0 +1,37 @@
+---
+title: "مساحة المستطيل"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عددين صحيحين موجبين من نوع `integer` يمثلان قيم الطول والعرض للمستطيل. تقوم الدالة **بحساب مساحة المستطيل** وإرجاع نتيجته.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `width = 9`، `height = 8` | `72` |
+| `width = 5`، `height = 5` | `25` |
+| `width = 4`، `height = 3` | `12` |
+| `width = 7`، `height = 4` | `28` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b9e42e20-e483-4b03-94b0-37c82f2dd55b/view)
+
+## الحل
+
+```python tab="Python"
+def area_of_rectangle(width: int, height: int) -> int:
+    return width * height
+```
+
+```js tab="JavaScript"
+function area_of_rectangle(width, height) {
+	return width * height;
+}
+```

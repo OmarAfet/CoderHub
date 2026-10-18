@@ -1,0 +1,37 @@
+---
+title: "محيط المعين"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد من نوع `float` يُمثل طول ضلع المعين تقوم الدالة **بحساب محيط المعين** وإرجاع نتيجته.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `length = 12` | `48` |
+| `length = 7` | `28` |
+| `length = 2` | `8` |
+| `length = 3.3` | `13.2` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b7d6b746-8612-4710-876a-7fd62d11cee4/view)
+
+## الحل
+
+```python tab="Python"
+def circumference_of_rhombus(length: float) -> float:
+    return length * 4
+```
+
+```js tab="JavaScript"
+function circumference_of_rhombus(length) {
+	return 4 * length;
+}
+```

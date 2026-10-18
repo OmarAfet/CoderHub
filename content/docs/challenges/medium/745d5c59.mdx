@@ -1,0 +1,45 @@
+---
+title: "الترتيب الشرطي"
+level: "medium"
+points: 10
+tags: ["Conditions","Lists","Sorting","Algorithms"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة function تستقبل متغيرين، المتغير الأول وهو مصفوفة array من نوع string تحتوي على مجموعة من الأسماء، والمتغير الثاني  هو مصفوفة array من نوع string  نوع الترتيب إما: ابجدي (ASC)  وهو التصاعدي أو (DESC) وهو التنازلي وتقوم الدالة  function بترتيب الإسم الأخير حسب نوع الترتيب المدخل
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `namesArray = ["Ahmed Omar","Yousef Abdullah"]`، `order = "ASC"` | `["Ahmed Omar","Yousef Abdullah"]` |
+| `namesArray = ["Khaled Bader","Khaled Bader","Mohammed Yahya"]`، `order = "DESC"` | `["Mohammed Yahya","Khaled Bader","Khaled Bader"]` |
+| `namesArray = ["Khaled Bader"]`، `order = "ASC"` | `["Khaled Bader"]` |
+| `namesArray = []`، `order = "DESC"` | `[]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/745d5c59-111c-4dc1-bfdc-0ec30dcf0476/view)
+
+## الحل
+
+```python tab="Python"
+def namesSort(namesArray: list[str], order: str) -> list[str]:
+    if order == 'ASC':
+        namesArray.sort()
+    elif order == 'DESC':
+        namesArray.sort(reverse=True)
+    return namesArray
+```
+
+```js tab="JavaScript"
+function namesSort(namesArray, order) {
+	if (order === "ASC") {
+		return namesArray.sort();
+	} else if (order === "DESC") {
+		return namesArray.sort().reverse();
+	}
+}
+```

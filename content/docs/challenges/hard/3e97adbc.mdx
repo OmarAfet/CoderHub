@@ -1,0 +1,45 @@
+---
+title: "تحديد الأعداد الفردية و الزوجية"
+level: "hard"
+points: 20
+tags: ["Numbers","Math"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح من نوع `integer`. تقوم الدالة بجمع الأعداد الفردية والزوجية التي يتكون منها العدد الصحيح، في حال كان **مجموع الأعداد الفردية أكبر** من مجموع الأعداد الزوجية قم بارجاع القيمة `odd` ، و في حال كان **مجموع الأعداد الزوجية أكبر** من مجموع الأعداد الفردية قم بإرجاع `even` و في حال كان **مجموع الأعداد الفردية يساوي** مجموع الأعداد الزوجية قم بإرجاع `equal`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 97428` | `"odd"` |
+| `num = 81961` | `"even"` |
+| `num = 54870` | `"equal"` |
+| `num = 26341` | `"even"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/3e97adbc-137b-46c2-9ec4-2532cebacbdf/view)
+
+## الحل
+
+```python tab="Python"
+def oddsVsEvens(num: int) -> str:
+    odd_sum = 0
+    even_sum = 0
+    while num > 0:
+        digit = num % 10
+        if digit % 2 == 0:
+            even_sum += digit
+        else:
+            odd_sum += digit
+        num //= 10
+    if odd_sum > even_sum:
+        return "odd"
+    elif even_sum > odd_sum:
+        return "even"
+    else:
+        return "equal"
+```

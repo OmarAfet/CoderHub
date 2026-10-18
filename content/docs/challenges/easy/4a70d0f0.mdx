@@ -1,0 +1,49 @@
+---
+title: "تاريخ الميلاد"
+level: "easy"
+points: 5
+tags: ["Date","Algorithms"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل تاريخ ووقت على شكل قيمة نصية `string`. تقوم الدالة باللتحقق ما إن كان التاريخ المُدخل تاريخ عُمر صحيح أم لا. بحيث تقوم الداله بإرجاع القيمة `True` في حال كان التاريخ المُدخل تاريخاً صحيحاً وتقوم بإرجاع القيمة `False` في حال كان التاريخ المُدخل غير صحيح وذلك حسب الشروط التالية:
+
+١. أن يكون التاريخ المدخل قبل تاريخ اليوم الحالي
+
+٢. أن يكون التاريخ المدخل قبل ٤ أعوام كحد أدنى من تاريخ اليوم الحالي 
+
+٣. أن يكون التاريخ المدخل لا يتجاوز 200 عام في الماضي عن التاريخ الحالي
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `dateString = "2099-08-02T00:00:00"` | `false` |
+| `dateString = "2017-10-21T00:00:00"` | `true` |
+| `dateString = "1111-08-29T00:00:00"` | `false` |
+| `dateString = "3020-01-01T00:00:00"` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4a70d0f0-5f13-4647-a7fa-80647e118ac4/view)
+
+## الحل
+
+```python tab="Python"
+def kSumSubset(dateString: str) -> bool:
+    return int(dateString[:4]) <= (2022 - 4) and int(dateString[:4]) > (2022 - 200)
+```
+
+```js tab="JavaScript"
+function kSumSubset(dateString) {
+	currentYear = 2023;
+	givenYear = Number(dateString.slice(0, 4));
+	if (givenYear <= currentYear - 4 && givenYear > currentYear - 200) {
+		return true;
+	} else {
+		return false;
+	}
+}
+```

@@ -1,0 +1,48 @@
+---
+title: "موقعي في خط الأعداد الصحيحة"
+level: "easy"
+points: 5
+tags: ["Conditions","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح `integer` وتحدد فيما إذا كانت القيمة المرسلة **أصغر من** أو **أكبر من** أو **تساوي** الصفر. تقوم الدالة بإرجاع قيمة نصية `string` تُعبّر عن حالة القيمة المرسلة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 10` | `"Greater than zero"` |
+| `number = -7` | `"Less than zero"` |
+| `number = 0` | `"Equal to zero"` |
+| `number = -56` | `"Less than zero"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e0653271-5891-40e6-8a1d-3fb2229b8285/view)
+
+## الحل
+
+```python tab="Python"
+def less_or_more_than_zero(number: int) -> str:
+    if number > 0:
+        return 'Greater than zero'
+    elif number < 0:
+        return 'Less than zero'
+    elif number == 0:
+        return 'Equal to zero'
+```
+
+```js tab="JavaScript"
+function less_or_more_than_zero(number) {
+	if (number > 0) {
+		return "Greater than zero";
+	} else if (number < 0) {
+		return "Less than zero";
+	} else if (number == 0) {
+		return "Equal to zero";
+	}
+}
+```

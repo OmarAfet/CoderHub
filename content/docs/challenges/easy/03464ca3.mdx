@@ -1,0 +1,47 @@
+---
+title: "التحقق من النصوص في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Lists","Boolean"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `string`. تقوم الدالة **بالتحقق من القيم المتشابهة** داخل المصفوفة، حيث تقوم الدالة بإرجاع القيمة `true` إذا كانت القيم متساوية وإرجاع القيمة `false` إذا كانت غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `value = ["Code","Code","Code"]` | `true` |
+| `value = ["Hi","By"]` | `false` |
+| `value = ["Cup","Cup"]` | `true` |
+| `value = ["Book","Water"]` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/03464ca3-51fa-4eb8-a68d-49a8708b860c/view)
+
+## الحل
+
+```python tab="Python"
+def stringCheck(value: list[str]) -> bool:
+    first = value[0]
+    return all(first == elem for elem in value)
+```
+
+```js tab="JavaScript"
+function stringCheck(value) {
+	let x = null;
+	for (let i = 0; i < value.length; i++) {
+		const e = value[i];
+		if (x == null) {
+			x = e;
+		} else if (x !== e) {
+			return false;
+		}
+	}
+	return true;
+}
+```

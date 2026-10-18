@@ -1,0 +1,53 @@
+---
+title: "أفضل وقت لشراء وبيع الأسهم"
+level: "medium"
+points: 10
+tags: ["Math","Algorithms"]
+languages: ["Python"]
+date: "2024-09-08T11:07:08"
+status: "solved"
+---
+
+## الوصف
+
+وصف التحدي
+أُعطيت مصفوفة prices حيث أن prices[i] هي سعر سهم معين في اليوم ( i ) ،.
+الهدف هو إيجاد الربح الأقصى الذي يمكن تحقيق ه من خلال إجراء ما لا يزيد عن تعاملين بيع وشراء . تذكر أنه لا يمكن إجراء عدة عمليات بيع وشراء في نفس الوقت (أي يجب بيع السهم قبل شرائه مرة أخرى) .
+
+مثال :
+
+الإدخال: prices = [3, 3, 5, 0, 0, 3, 1, 4]
+
+الإخراج: 6
+
+الشرح: يمكن شراء السهم في اليوم الرابع بسعر.
+0 وبيعه في اليوم السادس بسعر 3 (ربح أول = 3)، ثم شراء السهم مرة أخرى في اليوم السابع بسعر 1 وبيعه في اليوم الثامن بسعر 4 (ربح ثاني = 3)، الربح الكلي = 3 + 3 = 6.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `prices = [3,3,5,0,0,3,1,4]` | `6` |
+| `prices = [1,2,3,4,5]` | `4` |
+| `prices = [1,4,2,5]` | `6` |
+| `prices = [1,2,3,4,5]` | `4` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/02b0ddbc-881b-4828-b988-52a9f0777017/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def maxProfit(prices: List[int]) -> int:
+    if not prices:
+        return 0
+    n = len(prices)
+    buy1 = buy2 = float('inf')
+    profit1 = profit2 = 0
+    for p in prices:
+        buy1 = min(buy1, p)
+        profit1 = max(profit1, p - buy1)
+        buy2 = min(buy2, p - profit1)
+        profit2 = max(profit2, p - buy2)
+    return profit2
+```

@@ -1,0 +1,40 @@
+---
+title: "التحقق من النص الفارغ"
+level: "easy"
+points: 5
+tags: ["String","Boolean"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية `string`. تقوم الدالة بالتحقق **هل القيمة النصية فارغة أم لا** عن طريق إرجاع القيمة `true` في حال وجود نص فارغ والقيمة  `false` في حال غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "Gift"` | `false` |
+| `strParam = "www"` | `false` |
+| `strParam = ""` | `true` |
+| `strParam = "hello"` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b0b4493b-7e15-4632-9f04-ba5f3cf8a80d/view)
+
+## الحل
+
+```python tab="Python"
+def isEmpty(strParam: str) -> bool:
+    if strParam == '':
+        return True
+    else:
+        return False
+```
+
+```js tab="JavaScript"
+function isEmpty(strParam) {
+	return /^$/.test(strParam);
+}
+```

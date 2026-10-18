@@ -1,0 +1,32 @@
+---
+title: "بوابة الضرب المنطقي"
+level: "easy"
+points: 5
+tags: ["Boolean"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل متغيرين من نوع `boolean`. تقوم الدالة بقيام العملية `AND` على المُتغيرين وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `a = true`، `b = false` | `false` |
+| `a = true`، `b = true` | `true` |
+| `a = false`، `b = true` | `false` |
+| `a = false`، `b = false` | `false` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/aebc740a-de62-4342-b2ee-38ca690e9bba/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def logical_and_(a: bool, b: bool) -> bool:
+    return a and b
+```

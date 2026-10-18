@@ -1,0 +1,46 @@
+---
+title: "الفترة الزمنية"
+level: "medium"
+points: 10
+tags: ["Date","Algorithms"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة `function` تستقبل تاريخين على شكل `string` يمثل التاريخ الأول تاريخ البداية ويمثل التاريخ الثاني تاريخ النهاية وتقوم الدالة بإرجاع القيمة `True` في حال كان التاريخين المُدخلين صحيحين وتقوم بإرجاع القيمة `False` في حال كان التاريخين المدخلين أو أحدهما خاطئ، وذلك حسب الشروط التالية:
+١. يجب أن يكون تاريخ البداية يسبق تاريخ الانتهاء 
+٢. يجب أن يكون تاريخ البداية والنهاية قبل تاريخ اليوم
+٣. صيغة التواريخ المُمررة للدالة تكون بصيغة نصية مكونة من تاريخ ووقت
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `date1 = "2017-08-02T00:00:00"`، `date2 = "2017-08-08T00:00:00"` | `true` |
+| `date1 = "2023-08-02T00:00:00"`، `date2 = "2017-08-08T00:00:00"` | `false` |
+| `date1 = "2079-08-02T00:00:00"`، `date2 = "2089-08-19T00:00:00"` | `false` |
+| `date1 = "2022-01-02T00:00:00"`، `date2 = "2022-01-12T00:00:00"` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/6af0fc35-818d-4c74-89b1-1ed8df554371/view)
+
+## الحل
+
+```python tab="Python"
+from datetime import datetime 
+def timePeriod(date1: str, date2: str) -> bool:
+    d1 = datetime.fromisoformat(date1)
+    d2 = datetime.fromisoformat(date2)
+    
+    if d1 > datetime.today() or d2 > datetime.today():
+        return False
+    
+    if d1 > d2:
+        return False
+    elif d1 < d2:
+        return True
+    
+    return False
+```

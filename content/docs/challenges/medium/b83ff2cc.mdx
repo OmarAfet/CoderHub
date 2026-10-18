@@ -1,0 +1,36 @@
+---
+title: "المصفوفة الجذرية"
+level: "medium"
+points: 10
+tags: ["Math","Loop"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة من نوع `double`. تقوم الدالة **بحساب الجذر التربيعي لكل عنصر في المصفوفة** ثم تقوم بإرجاع النتيجة في مصفوفة  جديدة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [4,81,49]` | `[2,9,7]` |
+| `arr = [15,6,3]` | `[3.87,2.45,1.73]` |
+| `arr = [121,144,169]` | `[11,12,13]` |
+| `arr = [4.2,6.9]` | `[2.05,2.63]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/b83ff2cc-47e9-4965-b764-6fce3ba65be6/view)
+
+## الحل
+
+```python tab="Python"
+import math
+def array_root(arr: list[float]) -> list[float]:
+    result = []
+    for i in arr:
+        result.append(math.sqrt(i))
+
+    return result
+```

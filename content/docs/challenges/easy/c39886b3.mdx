@@ -1,0 +1,79 @@
+---
+title: "الأعداد الأولية بين قيمتين"
+level: "easy"
+points: 5
+tags: ["Algorithms","Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة الدالة  `function` تستقبل عددين، كلاهما عدد صحيح، ثم تقوم  الدالة  بإرجاع مصفوفة تحتوي على جميع الأرقام الأولية بين هذين الرقمين.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `a = 1`، `b = 10` | `[2,3,5,7]` |
+| `a = 20`، `b = 50` | `[23,29,31,37,41,43,47]` |
+| `a = 90`، `b = 100` | `[97]` |
+| `a = 53`، `b = 67` | `[53,59,61,67]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c39886b3-1183-4fc3-a2d9-d1f75f78b6cb/view)
+
+## الحل
+
+```python tab="Python"
+import math
+def getPrimesBetween(a: int, b: int) -> list[int]:
+    if a < 2:
+        a = 2
+    if b < a:
+        return []
+
+    primes = []
+    for num in range(a, b+1):
+        is_prime = True
+
+        for i in range(2, int(math.sqrt(num))+1):
+            if num % i == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            primes.append(num)
+
+    return primes
+```
+
+```js tab="JavaScript"
+function getPrimesBetween(a, b) {
+	if (a < 2) {
+		a = 2;
+	}
+	if (b < a) {
+		return [];
+	}
+
+	let primes = [];
+
+	for (let num = a; num <= b; num++) {
+		let is_prime = true;
+
+		for (let i = 2; i <= Math.sqrt(num); i++) {
+			if (num % i == 0) {
+				is_prime = false;
+				break;
+			}
+		}
+
+		if (is_prime) {
+			primes.push(num);
+		}
+	}
+
+	return primes;
+}
+```

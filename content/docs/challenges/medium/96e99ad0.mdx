@@ -1,0 +1,48 @@
+---
+title: "إيجاد الحرف الناقص"
+level: "medium"
+points: 10
+tags: ["Searching","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` ، تقوم الـدالة  `function` **بالبحث عن الحرف المفقود حسب الترتيب الأبجدي لأول حرف مدخل في النص** ، ثم قم بارجاع الحرف المفقود من نوع `string` وفي حالة عدم فقدان حرف قم بارجاع رسالة توضح ذلك
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `txt = "rsuv"` | `"t"` |
+| `txt = "ghijk"` | `"No Missing Letter"` |
+| `txt = "vwyz"` | `"x"` |
+| `txt = "abcd"` | `"No Missing Letter"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/96e99ad0-260a-4bd2-bce8-0040b241dc81/view)
+
+## الحل
+
+```python tab="Python"
+from string import ascii_lowercase
+def missingLetter(txt: str) -> str:
+    letters = list(ascii_lowercase)
+
+    lock = 0
+    for i in txt:
+        if i in letters:
+            index = letters.index(i)
+
+            if lock == 0:
+                lock += 1
+                newindex = index + 1
+            
+            if index + 1 == newindex:
+                newindex += 1
+            else:
+                return letters[newindex - 1]
+
+    return 'No Missing Letter'
+```

@@ -1,0 +1,42 @@
+---
+title: "حذف العناصر المتشابهة في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Numbers","Searching"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة  `array` من نوع `integer`، تقوم الـدالة  `function` **بحذف العناصر المتشابهة** في نفس الـمصفوفة  `array` ثم قم بارجاع المصفوفة `array` من نوع `integer`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [7,8,9,7]` | `[7,8,9]` |
+| `arr = [10,-10,-10,10]` | `[10,-10]` |
+| `arr = [100,101,102,100]` | `[100,101,102]` |
+| `arr = [12,3]` | `[12,3]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/9d7f8aba-9e7f-4f60-b809-24fa0e809b8e/view)
+
+## الحل
+
+```python tab="Python"
+def remove_duplicate(arr: list[int]) -> list[int]:
+    arrr = []
+    for i in arr:
+        if i not in arrr:
+            arrr.append(i)
+
+    return arrr
+```
+
+```js tab="JavaScript"
+function remove_duplicate(arr) {
+	return [...new Set(arr)];
+}
+```

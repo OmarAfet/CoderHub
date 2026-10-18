@@ -1,0 +1,53 @@
+---
+title: "المسار المستمر للوقود"
+level: "medium"
+points: 10
+tags: ["Math","String","Numbers","Algorithms","Sorting","Searching","Lists","Objects","Loop","Date","Project Euler","Boolean","Random","Conditions"]
+languages: ["Python"]
+date: "2024-09-08T11:54:27"
+status: "solved"
+---
+
+## الوصف
+
+لديك طريق دائري يحتوي على عدد &quot;n&quot; من محطات الوقود.
+ كل محطة مُعرفة بكمية الوقود gas[i] المتوفرة فيها،
+ وتكلفة الوقود cost[i] للانتقال من هذه المحطة إلى المحطة التالية. 
+تبدأ الرحلة من أي محطة ولكن بخزان وقود فارغ.
+
+الهدف من هذا التحدي :
+معطياتك هي مصفوفتان صحيحتان، gas و cost.
+ المطلوب منك تحديد فهرس المحطة التي يمكنك أن تبدأ منها الرحلة،
+ بحيث تستطيع الدوران حول الطريق مرة واحدة في اتجاه عقارب الساعة
+ دون نفاد الوقود. إذا لم تجد أي محطة تُمكنك من إكمال الدورة، 
+يجب أن تُرجع (-1)
+
+ (إن وجد، يكون فريدًا).
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `gas = [1,2,3,4,5]`، `cost = [3,4,5,1,2]` | `3` |
+| `gas = [2,3,4]`، `cost = [3,4,3]` | `-1` |
+| `gas = [2,3,4]`، `cost = [3,4,3]` | `-1` |
+| `gas = [2,3,4]`، `cost = [3,4,3]` | `-1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/14df36bf-add2-4b7f-8628-bdf2ae2d25ac/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
+    if sum(gas) < sum(cost):
+        return -1
+    start = 0
+    tank = 0
+    for i in range(len(gas)):
+        tank += gas[i] - cost[i]
+        if tank < 0:
+            start = i + 1
+            tank = 0
+    return start
+```

@@ -1,0 +1,55 @@
+---
+title: "أكبر رقم تقاطع"
+level: "easy"
+points: 5
+tags: ["Algorithms","Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل مصفوفتين وتقوم الدالة بإرجاع أكبر رقم تتقاطع المصفوفتين فيه
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `a = [1,2,4,5]`، `b = [3,4,7,11]` | `4` |
+| `a = [0]`، `b = [0]` | `0` |
+| `a = [90,95]`، `b = [90,95]` | `95` |
+| `a = [10,2,3,12,3]`، `b = [54,12,33,1]` | `12` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d4b9fdd8-ded5-40ae-9606-50c4274a51ed/view)
+
+## الحل
+
+```python tab="Python"
+def getBiggestShared(a: list[int], b: list[int]) -> int:
+    x = []
+    for i in a:
+        for j in b:
+            if i == j:
+                x.append(i)
+    x.sort()
+    return x[-1]
+```
+
+```js tab="JavaScript"
+function getBiggestShared(a, b) {
+	a = a.sort((a, b) => a - b);
+	b = b.sort((a, b) => a - b);
+	z = [];
+	for (let i = 0; i < a.length; i++) {
+		const x = a[i];
+		for (let j = 0; j < b.length; j++) {
+			const y = b[j];
+			if (x == y) {
+				z.push(x);
+			}
+		}
+	}
+	return z.sort((a, b) => a - b).pop();
+}
+```

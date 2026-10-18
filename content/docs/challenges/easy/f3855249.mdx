@@ -1,0 +1,42 @@
+---
+title: "الجمع التراكمي"
+level: "easy"
+points: 5
+tags: ["Math","Numbers","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة `array` من نوع `integer` وتقوم بإرجاع **حاصل جمع جميع الأعداد** و **عدد العناصر** في الـ مصفوفة `array`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `elements_array = [5,1,2,4,9,10,200]` | `[231,7]` |
+| `elements_array = [500,123,52,123,22]` | `[820,5]` |
+| `elements_array = [1,1,2,5,2,5,8]` | `[24,7]` |
+| `elements_array = [7,9,12,100,244]` | `[372,5]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f3855249-26b0-4aca-b395-951636bad934/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def cumulative_addition(elements_array: List[int]) -> List[int]:
+    return [sum([i for i in elements_array]), len(elements_array)]
+```
+
+```js tab="JavaScript"
+function cumulative_addition(elements_array) {
+	let sum = 0;
+	for (let i = 0; i < elements_array.length; i++) {
+		sum += elements_array[i];
+	}
+	return [sum, elements_array.length];
+}
+```

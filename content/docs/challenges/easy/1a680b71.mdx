@@ -1,0 +1,37 @@
+---
+title: "عدد حروف القيمة النصية"
+level: "easy"
+points: 5
+tags: ["Numbers","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية `string`. تقوم الدالة بإرجاع **عدد الحروف والمسافات** في تلك القيمة النصية.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `name = "Keep smiling"` | `12` |
+| `name = "You can"` | `7` |
+| `name = "awesome"` | `7` |
+| `name = "CoderHub"` | `8` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/1a680b71-c875-4859-8a86-bc969ed1b9ed/view)
+
+## الحل
+
+```python tab="Python"
+def name_char_length(name: str) -> int:
+    return len(name)
+```
+
+```js tab="JavaScript"
+function name_char_length(name) {
+	return name.length;
+}
+```

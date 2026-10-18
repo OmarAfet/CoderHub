@@ -1,0 +1,68 @@
+---
+title: "نوع القيمة المدخلة"
+level: "easy"
+points: 5
+tags: ["Algorithms"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك تعمل كمطوّر في فريق بيانات داخل شركة تقنية.
+الفريق واجه مشكلة متكررة أثناء معالجة البيانات القادمة من واجهات المستخدم (Forms) —
+القيم تصل كلها كنصوص (Strings)، حتى لو كانت أرقام صحيحة أو عشرية.
+
+المطلوب منك كمبرمج ذكي هو بناء دالة ذكية **تتعرف على نوع القيمة الفعلي** داخل النص،
+وتحدد هل القيمة تمثل:
+
+- رقم صحيح (integer)،
+
+- رقم عشري (float)،
+
+- أو مجرد نص عادي (string).
+
+هذي الدالة بيتم استخدامها لاحقًا في أكثر من مشروع داخل الشركة
+علشان تساهم في تنظيف البيانات قبل تخزينها في قواعد البيانات.
+
+ببساطة: أنت تبني أداة مصغّرة تساعد الفريق في التحقق التلقائي من أنواع القيم
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `value = "hello"` | `"string"` |
+| `value = "12"` | `"integer"` |
+| `value = "21.21"` | `"double"` |
+| `value = "1"` | `"integer"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/fafcd23f-898f-4bcd-9396-9976d7ab01aa/view)
+
+## الحل
+
+```python tab="Python"
+def input_type(value: str) -> str:
+    if value.isdigit():
+        return 'integer'
+    elif value.isalpha():
+        return 'string'
+
+    for i in value:
+        if i == '.':
+            return 'double'
+        else:
+            pass
+```
+
+```js tab="JavaScript"
+function input_type(value) {
+	if (/^[^\d]+$/.test(value)) {
+		return "string";
+	} else if (/^\d+$/.test(value)) {
+		return "integer";
+	} else if (/^\d+\.\d+$/.test(value)) {
+		return "double";
+	}
+}
+```

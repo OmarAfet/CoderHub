@@ -1,0 +1,57 @@
+---
+title: "زحام الطوارئ"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2026-01-08T16:52:03"
+status: "solved"
+---
+
+## الوصف
+
+في فريق الاستجابة للحوادث، تتدفّق إليك طوابع زمنية (بالثواني) لأحداث مشتبه بها من أنظمة متعددة. هدفك هو العثور على **أشد فترة ازدحام** خلال نافذة زمنية من طول ثابت `window` ثوانٍ. نُعرّف “الازدحام” بأنه **أكبر عدد من الأحداث** التي تقع ضمن أي نافذة مستمرة بحيث **الفرق بين أول حدث وآخر حدث في النافذة ≤ window**.
+إن كانت هناك عدّة نوافذ تحقق نفس العدد الأقصى، نختار **أبكر بداية** (أصغر وقت بدء).
+
+**مثال توضيحي:**
+`times = [1, 2, 3, 10]` و `window = 2`
+بعد الفرز: `[1, 2, 3, 10]`
+
+- النافذة `[1, 2, 3]` الفرق `3 - 1 = 2` (مسموح)، عددها 3
+
+- الحدث `10` وحده لا يعطي عددًا أكبر
+إذًا النتيجة: **بداية النافذة = 1**، **أقصى عدد = 3** ⇒ نُعيد `[1, 3]`.
+
+ملاحظة: إن كانت القائمة فارغة نُعيد `[0, 0]`. الدالة تتولّى فرز المدخلات داخليًا.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `times = [1,2,3,10]`، `window = 2` | `[1,3]` |
+| `times = [5,5,5]`، `window = 0` | `[5,3]` |
+| `times = []`، `window = 10` | `[0,0]` |
+| `times = [1]`، `window = 10` | `[1,1]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/142ab6f0-ebe8-4faa-a0ac-240a16b15def/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def analyzeBurstWindow(times: List[int], window: int) -> List[int]:
+    if not times:
+        return [0, 0]
+    times.sort()
+    best_start = times[0]
+    best_count = 1
+    left = 0
+    for right in range(len(times)):
+        while times[right] - times[left] > window:
+            left += 1
+        count = right - left + 1
+        if count > best_count:
+            best_count = count
+            best_start = times[left]
+    return [best_start, best_count]
+```

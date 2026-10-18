@@ -1,0 +1,61 @@
+---
+title: "اعمدة البناء"
+level: "hard"
+points: 20
+tags: ["Math"]
+languages: ["Python"]
+date: "2026-01-26T15:47:22"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك مهندس معماري تنظر إلى مخطط مدرج بياني (Histogram) يتكون من أعمدة بأطوال مختلفة. هدفك هو إيجاد **أكبر مساحة مستطيل** يمكن رسمه باستخدام الأعمدة كحدود له.
+
+لكن هناك تحدٍ:
+
+- يجب أن يكون المستطيل متصلاً، أي أن عرضه يمتد على أعمدة متجاورة.
+
+- لديك الأدوات اللازمة لحساب المساحات بسرعة ودقة.
+
+### المثال :
+
+- **المدخل:**
+`heights = [2, 1, 5, 6, 2, 3]`
+
+- **الإخراج:**
+`10`
+
+- **الشرح:**
+باستخدام العمودين بارتفاع `5` و`6`، يمكنك تشكيل مستطيل عرضه `2` وارتفاعه `5`.
+المساحة: `5 × 2 = 10`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `heights = [2,1,5,6,2,3]` | `10` |
+| `heights = [2,4]` | `4` |
+| `heights = [6,2,5,4,5,1,6]` | `12` |
+| `heights = [1,1,1,1]` | `4` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/05ec5ce1-c344-4467-a7c0-175dd66fb628/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def largestRectangleArea(heights: List[int]) -> int:
+    stack = []
+    max_area = 0
+    for i, h in enumerate(heights):
+        start = i
+        while stack and stack[-1][1] > h:
+            idx, height = stack.pop()
+            max_area = max(max_area, height * (i - idx))
+            start = idx
+        stack.append((start, h))
+    for idx, height in stack:
+        max_area = max(max_area, height * (len(heights) - idx))
+    return max_area
+```

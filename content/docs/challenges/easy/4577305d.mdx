@@ -1,0 +1,60 @@
+---
+title: "العناصر المتشابهة في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Numbers","Searching"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer`. تقوم الدالة  **بإرجاع العناصر المتشابهة** في المصفوفة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [2,3,2,3]` | `[2,3]` |
+| `arr = [10,5,9,5]` | `[5]` |
+| `arr = [6,3,12,12]` | `[12]` |
+| `arr = [3,-9,-9,-4]` | `[-9]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/4577305d-32e9-448b-bb47-6ec1ac65af8c/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+
+def get_duplicate_elements(arr: List[int]) -> List[int]:
+    seen = set()
+    duplicates = []
+    for i in arr:
+        if i in seen:
+            if i not in duplicates:
+                duplicates.append(i)
+        else:
+            seen.add(i)
+    return duplicates
+```
+
+```js tab="JavaScript"
+function get_duplicate_elements(arr) {
+	let x = [];
+	let y = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		const e = arr[i];
+
+		if (x.includes(e) && !y.includes(e)) {
+			y.push(e);
+		} else {
+			x.push(e);
+		}
+	}
+
+	return y;
+}
+```

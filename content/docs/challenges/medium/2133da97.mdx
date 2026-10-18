@@ -1,0 +1,58 @@
+---
+title: "إزعاج جهاز الامن (SOS)"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2026-03-02T20:50:48"
+status: "solved"
+---
+
+## الوصف
+
+في مركز عمليات الأمن (SOC)، تتدفّق إنذارات متكرّرة من نفس المصدر في ثوانٍ متتالية، ما يسبب “ضجيجًا” يعرقل التحليل السريع. مهمّتك تنقية السجلّ بحيث لا يزيد عدد التكرارات المتتالية لنفس الإنذار عن حدّ معيّن `limit`.
+
+القواعد:
+
+- إن ظهر الإنذار نفسه عدّة مرات متتالية، نُبقي فقط أول `limit` منها.
+
+- **الحساسية لحالة الأحرف موجودة** (`"ALERT"` يختلف عن `"alert"`).
+
+- لا نغيّر ترتيب السجلّ، فقط نزيل الزائد من كل سلسلة متتالية (run).
+
+**مثال توضيحي:**
+`alerts = ["X","X","X","Y","Y","Z"], limit = 2`
+النتيجة: `["X","X","Y","Y","Z"]` (تمّ حذف تكرار "X" الثالث).
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `alerts = ["X","X","X","Y","Y","Z"]`، `limit = 2` | `["X","X","Y","Y","Z"]` |
+| `alerts = ["A","A","A","A"]`، `limit = 1` | `["A"]` |
+| `alerts = ["a","A","a","A"]`، `limit = 2` | `["a","A","a","A"]` |
+| `alerts = []`، `limit = 3` | `[]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2133da97-0720-472b-9d60-5394d367bd56/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def sanitizeRepeatedAlerts(alerts: List[str], limit: int) -> List[str]:
+    alert_count = 0
+    last_alert = ""
+    res = []
+    for a in alerts:
+        if last_alert != a:
+            alert_count = 0
+            last_alert = a
+        else:
+            last_alert = a
+            alert_count += 1
+
+        if alert_count < limit:
+            
+            res.append(a)
+    return res
+```

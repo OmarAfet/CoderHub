@@ -1,0 +1,37 @@
+---
+title: "دمج مصفوفتين"
+level: "easy"
+points: 5
+tags: ["Lists","Algorithms","Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل مصوفتان مكونة من اعداد صحيحة ومرتبة، تقوم هذه `function` بدمج المصفوفتان داخل مصفوفة واحدة بشكل مرتب ومن ثم تقوم بإرجاعها.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `array1 = [1,2]`، `array2 = [3,4]` | `[1,2,3,4]` |
+| `array1 = [1,2]`، `array2 = [1,5]` | `[1,1,2,5]` |
+| `array1 = []`، `array2 = [1,4,9]` | `[1,4,9]` |
+| `array1 = []`، `array2 = []` | `[]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/48bbe26f-e7f0-4623-856a-3ba57be4ec99/view)
+
+## الحل
+
+```python tab="Python"
+def mergeAndOrder(array1: list[int], array2: list[int]) -> list[int]:
+    return sorted(array1 + array2)
+```
+
+```js tab="JavaScript"
+function mergeAndOrder(array1, array2) {
+	return array1.concat(array2).sort((a, b) => a - b);
+}
+```

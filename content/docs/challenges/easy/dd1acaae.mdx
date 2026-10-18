@@ -1,0 +1,42 @@
+---
+title: "القيمة المقلوبة"
+level: "easy"
+points: 5
+tags: ["Algorithms","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح وتقوم بإرجاع قيمة من نوع `boolean`، تقوم بإرجاع `true` إذا كان عدد مقلوب و`false` إذا كان غير ذلك.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 11` | `true` |
+| `num = 191` | `true` |
+| `num = 112` | `false` |
+| `num = 16461` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/dd1acaae-f14d-402b-b6fe-ded2934d1384/view)
+
+## الحل
+
+```python tab="Python"
+def isMirrored(num: int) -> bool:
+    x = str(num)
+    y = x[::-1]
+    if x == y:
+        return True
+    else:
+        return False
+```
+
+```js tab="JavaScript"
+function isMirrored(num) {
+	return num == String(num).split("").reverse().join("") ? true : false;
+}
+```

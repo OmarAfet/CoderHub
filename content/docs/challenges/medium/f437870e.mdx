@@ -1,0 +1,44 @@
+---
+title: "عداد للرقم 1"
+level: "medium"
+points: 10
+tags: ["Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح من نوع `integer` ، تقوم الدالةـ `function` بتحويل الـعدد الصحيح `integer` المدخل إلى **عدد ثنائي ثم تقوم بحساب عدد تكرار الرقم 1** ، ** نتائج الدالة من نوع `integer`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `num = 100` | `3` |
+| `num = 65` | `2` |
+| `num = 888` | `6` |
+| `num = 0` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/f437870e-89fc-4331-994c-a53b0c3f3a0d/view)
+
+## الحل
+
+```python tab="Python"
+def count_ones(num: int) -> int:
+    return bin(num)[2:].count('1')
+```
+
+```js tab="JavaScript"
+function count_ones(num) {
+	let binary = num.toString(2);
+	let count = 0;
+	for (let i = 0; i < binary.length; i++) {
+		if (binary[i] == 1) {
+			count++;
+		}
+	}
+	return count;
+}
+```

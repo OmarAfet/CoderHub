@@ -1,0 +1,82 @@
+---
+title: "بناء النصوص"
+level: "easy"
+points: 5
+tags: ["String","Math"]
+languages: ["Python","JavaScript"]
+date: "2023-02-20T11:13:00"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string`. تقوم بالدالة ببناء وإرجاع قيمة نصية بناءًا على القيمة المدخلة. عن طريق تكرار الاحرف بعدد معين تحدده القيمة المدخلة.
+على سبيل المثال: 
+
+`4a` يعني أنه يجب تكرار الحرف "a" أربع مرات. النتيجة المتوقعة هي `aaaa`.
+تقوم الدالة بإنشاء النص المطلوب باتباع تلك التعليمات، باستخدام مبدأ
+ Last-In, FirstOut
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `expression = "3[a]2[bc]"` | `"aaabcbc"` |
+| `expression = "3[a2[c]]"` | `"accaccacc"` |
+| `expression = "2[abc]3[cd]ef"` | `"abcabccdcdcdef"` |
+| `expression = "abc3[cd]xyz"` | `"abccdcdcdxyz"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/8a1f4355-de33-4fae-be6f-4a2d124b5ab8/view)
+
+## الحل
+
+```python tab="Python"
+def string_builder(expression: str) -> str:
+    stack = []
+    current_str = ''
+    current_num = 0
+
+    for char in expression:
+        if char.isdigit():
+            current_num = current_num * 10 + int(char)
+        elif char == '[':
+            stack.append(current_str)
+            stack.append(current_num)
+            current_str = ''
+            current_num = 0
+        elif char == ']':
+            num = stack.pop()
+            prev_str = stack.pop()
+            current_str = prev_str + num * current_str
+        else:
+            current_str += char
+
+    return current_str
+```
+
+```js tab="JavaScript"
+function string_builder(expression) {
+	let stack = [];
+	let current_str = "";
+	let current_num = 0;
+
+	for (let char of expression) {
+		if (char.match(/\d/)) {
+			current_num = current_num * 10 + parseInt(char);
+		} else if (char == "[") {
+			stack.push(current_str);
+			stack.push(current_num);
+			current_str = "";
+			current_num = 0;
+		} else if (char == "]") {
+			let num = stack.pop();
+			let prev_str = stack.pop();
+			current_str = prev_str + current_str.repeat(num);
+		} else {
+			current_str += char;
+		}
+	}
+
+	return current_str;
+}
+```

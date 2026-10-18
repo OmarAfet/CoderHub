@@ -1,0 +1,32 @@
+---
+title: "تحويل رقم ثنائي إلى رقم ثماني"
+level: "hard"
+points: 20
+tags: ["Math","Numbers"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل متغير من نوع `string` يعبر عن قيمة ثمانية `binary number`، ثم قم بإرجاع النتيجة بعد **التحويل الى قيمة ست عشرية** `octal number` بنوع `int`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `b = "101010101010"` | `5252` |
+| `b = "1000000000"` | `1000` |
+| `b = "10101111000"` | `2570` |
+| `b = "1"` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/5bd914c3-ab6d-49df-bf9b-5c01ef189974/view)
+
+## الحل
+
+```python tab="Python"
+def bin_to_oct(b: str) -> int:
+    x = int(b, 2)
+    return int(oct(x)[2:])
+```

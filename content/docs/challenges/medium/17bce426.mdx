@@ -1,0 +1,33 @@
+---
+title: "تحقق عن رقم داخل المصفوفة"
+level: "medium"
+points: 10
+tags: ["Searching","Numbers","Lists"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer` ، وتقوم **بالتحقق من** `integer` محدد مما إذا كان ضمن عناصر الـمفصوفه  **`array` أم لا**، ثم تقوم بإرجاع النتيجة من نوع `Boolean` .
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `elements_array = [2,12,34,2,3,4,5]`، `element = 4` | `true` |
+| `elements_array = [3232,1,24,45,335,454]`، `element = 3554` | `false` |
+| `elements_array = [2,5,6,7,8,2,1]`، `element = 5` | `true` |
+| `elements_array = [1,5,7,3,6,1]`، `element = 1` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/17bce426-4504-4df5-a1af-ec8203f7359b/view)
+
+## الحل
+
+```python tab="Python"
+def find_element(elements_array: list[int], element: int) -> bool:
+    if element in elements_array:
+        return True
+    return False
+```

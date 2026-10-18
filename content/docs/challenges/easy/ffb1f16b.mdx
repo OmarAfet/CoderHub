@@ -1,0 +1,47 @@
+---
+title: "أرباح بائع الأضاحي"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-05-19T14:38:31"
+status: "solved"
+---
+
+## الوصف
+
+في عيد الأضحى المبارك، يشتري بائع الأضاحي الأغنام والماعز بأسعار مختلفة، ثم يبيعها لأهالي الحي بسعر أعلى.
+
+يريد البائع معرفة ربحه الإجمالي من هذه العمليات.
+تعطى للبائع قائمتان:
+
+- **أسعار الشراء** لكل رأس من الأضاحي (بالريالات).
+
+- **أسعار البيع** المقابلة لكل رأس (بالريالات).
+
+مهمتك هي كتابة دالة تُسمى `calculateSacrificeProfit` تقوم بما يلي:
+
+- **تحسب** الربح لكل رأس بضرب (سعر البيع − سعر الشراء).
+
+- **تلخص** هذه الأرباح لتعيد **الربح الإجمالي**.
+
+إذا كان هناك ربح سلبي في أحد الرؤوس (أي خسارة)، يتم احتسابه أيضًا.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `buyPrices = [100]`، `sellPrices = [150]` | `50` |
+| `buyPrices = [100,200]`، `sellPrices = [150,250]` | `100` |
+| `buyPrices = [120,80,100]`، `sellPrices = [130,90,110]` | `30` |
+| `buyPrices = [200,200,200]`، `sellPrices = [200,200,200]` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/ffb1f16b-fe7f-4fbc-941d-2955a0907ebd/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def calculateSacrificeProfit(buyPrices: List[float], sellPrices: List[float]) -> float:
+    return sum(sellPrices) - sum(buyPrices)
+```

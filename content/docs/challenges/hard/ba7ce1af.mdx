@@ -1,0 +1,68 @@
+---
+title: "نصيب أضحية العيد"
+level: "hard"
+points: 20
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-05-19T14:36:47"
+status: "solved"
+---
+
+## الوصف
+
+في عيد الأضحى المبارك،
+
+يجتمع الأهل والجيران لتقسيم لحم الأضحية بعد التذكية، ويُحرص على أن يحصل كل فرد على نصيبه العادل بناءً على عدد أفراد عائلته. لديك الوزن الإجمالي للحم الأضحية (بالكيلوغرامات)، وقائمة بأعداد أفراد كل عائلة في الحيّ. مهمتك هي كتابة دالة تحسب وزن اللحم الذي يحصل عليه كل فرد في كل عائلة، ثم تجمعه بحسب حجم العائلة.
+
+- **المدخلات:**
+
+- `familySizes` (int[]) – عدد أفراد كل عائلة.
+
+- `totalWeight` (float) – الوزن الإجمالي للحم الأضحية بالكيلوغرام.
+
+- **ما يجب فعله:**
+
+- احسب إجمالي عدد الأشخاص: مجموع عناصر `familySizes`.
+
+- احسب وزن اللحم لكل فرد: `perPerson = totalWeight / totalPeople`.
+
+- لكل عائلة، احسب نصيبها: `share = perPerson × familySize`.
+
+- **الإخراج:**
+مصفوفة من الأعداد (float[]) تمثل وزن اللحم الذي يذهب لكل عائلة.
+
+### **مثال توضيحي:**
+
+- `familySizes = [2, 3]`
+
+- `totalWeight = 25.0`
+
+- المجموع الكلي للأشخاص = 2 + 3 = 5
+
+- نصيب الفرد = 25.0 ÷ 5 = 5.0 كجم
+
+- حصة العائلة الأولى = 5.0 × 2 = 10.0 كجم
+حصة العائلة الثانية = 5.0 × 3 = 15.0 كجم
+
+**الناتج:** `[10.0, 15.0]`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `familySizes = [1]`، `totalWeight = 10` | `[10]` |
+| `familySizes = [2]`، `totalWeight = 10` | `[10]` |
+| `familySizes = [2,3]`، `totalWeight = 25` | `[10,15]` |
+| `familySizes = [1,1,1]`، `totalWeight = 3` | `[1,1,1]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/ba7ce1af-3277-48e0-b0f5-085f31abb941/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def distributeSacrificeShares(familySizes: List[int], totalWeight: float) -> List[float]:
+    total_people = sum(familySizes)
+    per_person = totalWeight / total_people
+    return [per_person * size for size in familySizes]
+```

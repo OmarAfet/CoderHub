@@ -1,0 +1,58 @@
+---
+title: "الأسهم المتكررة"
+level: "medium"
+points: 10
+tags: ["Conditions","Algorithms","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة function تستقبل متغير من نوع  string يتكون من حروف، تقوم الدالة باستبدال الاحرف باحد الرمزين (&gt;) و(&lt;) بحيث اذا كان الحرف مكرر في الكلمة يتحول الى &gt; واذا كان الحرف لا يتكرر يتحول الى &lt;  
+
+** النتيجة للدالة  تكون من نوع string
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "Hi"` | `">>"` |
+| `word = "Bb"` | `"<<"` |
+| `word = "SAFCSP"` | `"<>>><>"` |
+| `word = "Java"` | `"><><"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/3b4a6874-de15-45dd-9f94-fd3b6e07398f/view)
+
+## الحل
+
+```python tab="Python"
+def arrowDuplicates(word: str) -> str:
+    table = [x.lower() for x in word]
+    result = ''
+    for i in table:
+        if table.count(i) > 1:
+            result += '<'
+        else:
+            result += '>'
+
+    return result
+```
+
+```js tab="JavaScript"
+function arrowDuplicates(word) {
+	let table = word.toLowerCase().split("");
+	let result = "";
+
+	for (let i of table) {
+		if (table.filter((x) => x === i).length > 1) {
+			result += "<";
+		} else {
+			result += ">";
+		}
+	}
+
+	return result;
+}
+```

@@ -1,0 +1,91 @@
+---
+title: "هل يمكننا الوصول؟"
+level: "hard"
+points: 20
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-08-18T14:08:37"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك في مدينة تتكون من عدة أحياء (نسميها "الرؤوس")، وكل حي متصل ببعض الأحياء المجاورة عن طريق طرق ثنائية الاتجاه (نسميها "الحواف").
+
+هدفك هو معرفة: هل يمكنك القيادة من الحي الذي تبدأ منه (المصدر) والوصول إلى حي معين آخر (الوجهة) باستخدام الطرق المتاحة؟
+
+لكن هناك مشكلة! الطرق كثيرة، وبعض الأحياء غير متصلة ببعضها. لذلك، عليك أن تتبع الطرق بعناية لتعرف ما إذا كان هناك مسار صالح يوصلك إلى وجهتك.
+
+### مثال توضيحي:
+
+### المدينة:
+
+- **عدد الأحياء (الرؤوس):** 5
+
+- **الطرق (الحواف):** [(0, 1), (1, 2), (2, 3), (3, 4)]
+
+- **المصدر:** 0
+
+- **الوجهة:** 4
+
+### الحل:
+
+- تبدأ من الحي 0.
+
+- تسير على الطريق إلى الحي 1.
+
+- من الحي 1، تسير إلى الحي 2.
+
+- من الحي 2، تسير إلى الحي 3.
+
+- وأخيرًا، تصل إلى الحي 4.
+
+**الإجابة:** نعم، يمكنك الوصول إلى الحي 4!
+
+### ملاحظات:
+
+- كل طريق يمكن السير فيه في كلا الاتجاهين.
+
+- ليس كل الأحياء متصلة ببعضها.
+
+- الحل يعتمد على البحث الذكي (DFS أو BFS) لمعرفة إذا كان هناك مسار.
+
+**بالتوفيق في إيجاد الطريق!**
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `n = 3`، `edges = [0,1,1,2,2,0]`، `source = 0`، `destination = 2` | `true` |
+| `n = 6`، `edges = [0,1,0,2,3,5,5,4,4,3]`، `source = 0`، `destination = 5` | `false` |
+| `n = 1`، `edges = []`، `source = 0`، `destination = 0` | `true` |
+| `n = 2`، `edges = [0,1]`، `source = 0`، `destination = 1` | `true` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/d37b41dc-38ed-4445-bb15-1590bdec7f38/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def validPath(n: int, edges: List[int], source: int, destination: int) -> bool:
+    if source == destination:
+        return True
+    adj = [[] for _ in range(n)]
+    for i in range(0, len(edges), 2):
+        u, v = edges[i], edges[i+1]
+        adj[u].append(v)
+        adj[v].append(u)
+    visited = set()
+    stack = [source]
+    while stack:
+        node = stack.pop()
+        if node == destination:
+            return True
+        if node in visited:
+            continue
+        visited.add(node)
+        for neighbor in adj[node]:
+            if neighbor not in visited:
+                stack.append(neighbor)
+    return False
+```

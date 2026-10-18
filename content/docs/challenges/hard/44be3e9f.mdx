@@ -1,0 +1,31 @@
+---
+title: "تحويل رقم ثماني إلى رقم ثنائي"
+level: "hard"
+points: 20
+tags: ["Math","Numbers"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل متغير من نوع `int` يعبر عن قيمة ثمانية `octal number`، ثم قم بإرجاع النتيجة بعد **التحويل الى قيمة ثنائية** `binary number` من نوع `string`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `octal = 5252` | `"101010101010"` |
+| `octal = 777` | `"111111111"` |
+| `octal = 123` | `"1010011"` |
+| `octal = 6523` | `"110101010011"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/44be3e9f-8b91-495d-91f2-c514693ff190/view)
+
+## الحل
+
+```python tab="Python"
+def oct_to_bin(octal: int) -> str:
+    return bin(int(str(octal), 8))[2:]
+```

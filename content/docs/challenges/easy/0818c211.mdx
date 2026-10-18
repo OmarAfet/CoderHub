@@ -1,0 +1,37 @@
+---
+title: "التحويل من الساعات إلى الثواني"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد صحيح موجب من نوع `integer` يُمثل عدد الساعات. تقوم الدالة **بتحويل عدد الساعات إلى الثواني** وإرجاع النتيجة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `hours = 6` | `21600` |
+| `hours = 9` | `32400` |
+| `hours = 12` | `43200` |
+| `hours = 4` | `14400` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/0818c211-add3-4327-8d2d-de0a618d75d9/view)
+
+## الحل
+
+```python tab="Python"
+def convert_to_seconds(hours: int) -> int:
+    return (hours * 60) * 60
+```
+
+```js tab="JavaScript"
+function convert_to_seconds(hours) {
+	return hours * 60 * 60;
+}
+```

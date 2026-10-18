@@ -1,0 +1,61 @@
+---
+title: "العثور على العنصر الفريد في المصفوفة"
+level: "medium"
+points: 10
+tags: ["Numbers","Searching"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة من نوع `integer` تقوم الدالةـ `function` بالبحث عن الأرقام الفريدة في المصفوفة وثم تقوم بإرجاعها داخل مصفوفة جديدة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [1,1,1,2,1,1]` | `[2]` |
+| `arr = [3,-4,3,3,3]` | `[-4]` |
+| `arr = [2,4,-2]` | `[2,4,-2]` |
+| `arr = [2,3,2,6,2]` | `[3,6]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/9965fb59-e700-4087-8bef-05c15e7cb0da/view)
+
+## الحل
+
+```python tab="Python"
+def unique(arr: list[int]) -> list[int]:
+    numbers = {}
+
+    for i in arr:
+        if i in numbers:
+            numbers[i] += 1
+        else:
+            numbers[i] = 1
+
+    result = []
+    for key, value in numbers.items():
+        result = [i for i in numbers if numbers[i] == value]
+
+    return result
+```
+
+```js tab="JavaScript"
+function unique(arr) {
+	let arr2 = [];
+	for (let i = 0; i < arr.length; i++) {
+		let count = 0;
+		for (let j = 0; j < arr.length; j++) {
+			if (arr[i] == arr[j]) {
+				count++;
+			}
+		}
+		if (count == 1) {
+			arr2.push(arr[i]);
+		}
+	}
+	return arr2;
+}
+```

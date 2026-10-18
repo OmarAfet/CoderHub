@@ -1,0 +1,43 @@
+---
+title: "حساب تكرار حرف"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل متغيرين الأول قيمة نصية من نوع `string` ، والثاني حرف من نوع `string` ، تقوم الدالة `function` **بحساب تكرار الحرف المدخل من القيمة النصية** ، ثم تقوم الدالة  بارجاع النتيجة من نوع `integer`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `sentence = "day"`، `ch = "d"` | `1` |
+| `sentence = "innovate"`، `ch = "n"` | `2` |
+| `sentence = "challenges"`، `ch = "z"` | `0` |
+| `sentence = "business"`، `ch = "s"` | `3` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/8b8c5470-eef2-46a1-9c86-6c33a83af695/view)
+
+## الحل
+
+```python tab="Python"
+def count_char(sentence: str, ch: str) -> int:
+    return sentence.count(ch)
+```
+
+```js tab="JavaScript"
+function count_char(sentence, ch) {
+	let count = 0;
+	for (let i = 0; i < sentence.length; i++) {
+		if (sentence[i] == ch) {
+			count++;
+		}
+	}
+	return count;
+}
+```

@@ -1,0 +1,39 @@
+---
+title: "حذف عنصر في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Searching","Algorithms","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين، الأولى مصفوفة `array` من نوع `integer` والثانية عدد صحيح موجب `Non-negative integer`. تقوم الـدالة **بحذف العنصر الذي يحتوي على نفس رقم**  `index` الذي تم تمريره للدالة من الـمصفوفة وإرجاع مصفوفة جديدة ناتجة عن عملية الحذف.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [3,2,4,88]`، `index = 2` | `[3,2,88]` |
+| `arr = [3,-3,4,0]`، `index = 0` | `[-3,4,0]` |
+| `arr = [2,4,5]`، `index = 1` | `[2,5]` |
+| `arr = [1,2,3]`، `index = 0` | `[2,3]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2f8154d7-ea83-4a1b-b8d7-d1d45848dbb0/view)
+
+## الحل
+
+```python tab="Python"
+def delete_element_in_array(arr: list[int], index: int) -> list[int]:
+    arr.pop(index)
+    return arr
+```
+
+```js tab="JavaScript"
+function delete_element_in_array(arr, index) {
+	arr.splice(index, 1);
+	return arr;
+}
+```

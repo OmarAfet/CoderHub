@@ -1,0 +1,39 @@
+---
+title: "أحرف العلة"
+level: "hard"
+points: 20
+tags: ["Conditions","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل متغيرين، المتغير الأول عبارة عن نص من نوع `string` و المتغير الثاني عبارة عن عدد من نوع `integer` ، تقوم الدالة **باستخراج أحرف العلة من النص المدخل إعتمادًا على العدد المدخل**. في حال أن العدد المدخل أكبر من حروف العلة : تقوم الدالة بإظهار رسالة `invalid` ، و في حال أن العدد المدخل أصغر أو مساوي لحروف العلة : تقوم بإرجاع الحروف من نوع `string` بناء على العدد المدخل.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `phrase = "Queen"`، `n = 3` | `"uee"` |
+| `phrase = "First Time"`، `n = 3` | `"iie"` |
+| `phrase = "Apple"`، `n = 2` | `"Ae"` |
+| `phrase = "Riyadh"`، `n = 2` | `"ia"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/a25be439-0887-4775-9498-ec36eb413888/view)
+
+## الحل
+
+```python tab="Python"
+def first_n_vowels(phrase: str, n: int) -> str:
+    vowels = 'aeiouAEIOU'
+    result = ''
+    for ch in phrase:
+        if ch in vowels:
+            result += ch
+    if len(result) < n:
+        return
+    else:
+        return result[:n]
+```

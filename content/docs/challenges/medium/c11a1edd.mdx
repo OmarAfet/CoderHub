@@ -1,0 +1,73 @@
+---
+title: "مهمة تصحيح التواريخ في المتحف"
+level: "medium"
+points: 10
+tags: ["Algorithms"]
+languages: ["Python"]
+date: "2024-09-11T14:35:44"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك تعمل كمحرر في متحف تاريخي، وعليك مراجعة ملاحظات تحتوي على تواريخ لفترة معينة تم إدخالها بشكل يدوي وتحتمل الخطأ.
+مهمتك هي تصحيح هذه التواريخ بحيث تكون مرتبة بترتيب زمني تصاعدي، وأيضًا تتأكد من أن جميع التواريخ تقع ضمن الفترة الزمنية ( 1000م - 2011م) .عليك تعديل كل تاريخ بتغيير رقم واحد فقط و يكون الفرق بين السنة المكتوبة والسنة بعد التعديل اقل مايمكن لتحقيق الترتيب الصحيح، فيه حال كتب تاريخ بشكل خاطئ فالتاريخ الذي يليه كتب بشكل صحيح.
+
+قم بكتابة دالة `function`: تقوم الدالة باستقبال مصفوفة من ثلاث أعداد صحيحة من نوع `integer`. كل خلية في هذه المصفوفة تمثل تاريخ في الملاحظات يتكون من أربعة أرقام. 
+وترجع مصفوفة من الأعداد الصحيحة تمثل التواريخ بعد التعديل، و إذا لم يكن هناك حل ترجع المصفوفة صفرية.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `Dates = [1495,1309,1240]` | `[1295,1309,1340]` |
+| `Dates = [2002,1010,2011]` | `[2002,2010,2011]` |
+| `Dates = [2200,1122,1100]` | `[0,0,0]` |
+| `Dates = [2000,1999,1100]` | `[1000,1999,2100]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c11a1edd-5a42-477e-b9f2-d0a08a248e1f/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+
+def adjustDates(Dates: List[int]) -> List[int]:
+    def candidates(n):
+        s = str(n).zfill(4)
+        cands = [n]
+        for i in range(4):
+            for d in '0123456789':
+                if d != s[i]:
+                    ny = int(s[:i] + d + s[i+1:])
+                    if 1000 <= ny <= 9999:
+                        cands.append(ny)
+        return cands
+
+    d1, d2, d3 = Dates
+    best = None
+    best_diff = float('inf')
+
+    for d1p in candidates(d1):
+        c1 = (d1p != d1)
+        for d2p in candidates(d2):
+            c2 = (d2p != d2)
+            if c1 and c2: continue
+            if d2p < d1p: continue
+            
+            for d3p in candidates(d3):
+                c3 = (d3p != d3)
+                if c2 and c3: continue
+                if d3p < d2p: continue
+                
+                diff = abs(d1 - d1p) + abs(d2 - d2p) + abs(d3 - d3p)
+                
+                if diff < best_diff:
+                    best_diff = diff
+                    best = [d1p, d2p, d3p]
+                elif diff == best_diff:
+                    if [d1p, d2p, d3p] > best:
+                        best = [d1p, d2p, d3p]
+
+    return best if best and best_diff < float('inf') else [0, 0, 0]
+```

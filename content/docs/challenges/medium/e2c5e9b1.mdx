@@ -1,0 +1,43 @@
+---
+title: "العنصر الأكبر في المصفوفة"
+level: "medium"
+points: 10
+tags: ["Algorithms","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer`، تقوم الـدالة `function` بإرجاع **أكبر عدد** في المصفوفة  `array`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [1,2,3,4,5,1000]` | `1000` |
+| `arr = [32,35,23,59,20,88]` | `88` |
+| `arr = [-2,-563,-13,-8]` | `-2` |
+| `arr = [-54,0,-88,-91,-5]` | `0` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e2c5e9b1-9632-4a2e-ae65-717836e4f3f8/view)
+
+## الحل
+
+```python tab="Python"
+def max_element(arr: list[int]) -> int:
+    return max(arr)
+```
+
+```js tab="JavaScript"
+function max_element(arr) {
+	let max = arr[0];
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+		}
+	}
+	return max;
+}
+```

@@ -1,0 +1,37 @@
+---
+title: "جمع وعكس الكلمات"
+level: "easy"
+points: 5
+tags: ["String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمتين من نوع `string`. تقوم الدالة **بجمع القيمتين كقيمة واحدة بينهما فاصلة وعكسهما**، بحيث تكون القيمة الثانية **قبل الفاصلة**، والقيمة الأولى **بعد الفاصلة**.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `str1 = "test"`، `str2 = "one"` | `"one, test"` |
+| `str1 = "two"`، `str2 = "sons"` | `"sons, two"` |
+| `str1 = "my"`، `str2 = "bear"` | `"bear, my"` |
+| `str1 = "Hub"`، `str2 = "coder"` | `"coder, Hub"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/2eda26f5-85b0-4825-aedc-d0b312af1cf5/view)
+
+## الحل
+
+```python tab="Python"
+def reverse_words(str1: str, str2: str) -> str:
+    return f'{str2}, {str1}'
+```
+
+```js tab="JavaScript"
+function reverse_words(str1, str2) {
+	return `${str2}, ${str1}`;
+}
+```

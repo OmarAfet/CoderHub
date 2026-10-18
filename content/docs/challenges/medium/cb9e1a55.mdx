@@ -1,0 +1,35 @@
+---
+title: "المصفوفة التزايدية"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2023-11-14T14:44:54"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة تحتوي على ارقام صحيحة ومهمتك هي تعديل المصفوفة بحيث تكون الاعداد تتزايد بمعنى ان كل عنصر في المصفوفة اكبر من او يساوي العنصر الذي يسبقه 
+
+في كل عنصر يمكنك زيادة العدد بواحد وكل زيادة تحسب بنقطة ، ما هو الحد الأدنى لعدد النقاط المطلوبة لتحقيق مهمتك ؟
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [3,2,5,1,7]` | `5` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/cb9e1a55-6ed0-4b1a-8d86-da71dcfbcf33/view)
+
+## الحل
+
+```python tab="Python"
+def increasing_array(arr: list[int]) -> int:
+    points = 0
+    for i in range(1, len(arr)):
+        if arr[i] < arr[i-1]:
+            points += arr[i-1] - arr[i]
+            arr[i] = arr[i-1]
+    return points
+```

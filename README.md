@@ -1,27 +1,77 @@
-![CoderHub Logo](https://user-images.githubusercontent.com/81147447/211191094-fb44f368-ab66-4e99-a3d2-eaa21ff006b9.png)
-
 # CoderHub Solutions
 
-This repository contains my solutions to various coding challenges from CoderHub. I have spent a lot of time working on these challenges and am proud to share my work with others.
+My accepted solutions to [CoderHub](https://coderhub.sa) challenges, built with
+[Fumadocs](https://fumadocs.dev) (Next.js), in Arabic (RTL).
 
-I hope that others can learn from my solutions and use them as a reference when working on similar challenges from CoderHub or elsewhere. Please do not simply copy these solutions for the purpose of flexing or showing off. The goal of sharing my work is to help others learn and improve their own coding skills.
+- Live: https://omarafet.vercel.app/coderhub
+- Please try a challenge yourself before you read its solution.
 
-By starring this repository, you can show your support for the time and effort that I have put into these solutions and stay up-to-date on any new languages and solutions that I add.
+From 2022 to 2023 this repo held the solution files as `challenges/<Language>/<Level>/<title>.<ext>`.
+On 2026-10-19 it became this site; the old files are in the git history.
 
-# حلول CoderHub
+## Layout
 
-يحتوي هذا المشروع على حلولي لمختلف التحديات من CoderHub. لقد قضيت الكثير من الوقت في العمل على هذه التحديات وأنا فخور بمشاركة عملي مع الآخرين.
+```
+content/docs/
+  index.mdx                                   home page
+  challenges/<level>/<id8>.mdx                general challenges (easy, medium, hard)
+  activities/<activity>-<year>/<slug>.mdx     activity (competition) challenges, in timeline order
+```
 
-آمل أن يتمكن الآخرون من التعلم من حلولي واستخدامها كمرجع عند العمل على تحديات مماثلة من CoderHub أو في أي مكان آخر. وأرجوا ان لا تنسخ هذه الحلول ببساطة لغرض الثناء أو التباهي. الهدف من مشاركة عملي هو مساعدة الآخرين على تعلم مهارات الترميز الخاصة بهم وتحسينها.
+One `.mdx` page per challenge: the problem text, the example tests, and the solution code with one tab per
+language. Front matter: `title`, `level`, `points`, `tags`, `languages`, `date` (CoderHub creation date, or the
+activity start) and `status`.
 
-من خلال تمييز هذا المشروع بنجمة ، يمكنك إظهار دعمك للوقت والجهد اللذين بذلتهما في هذه الحلول والبقاء على اطلاع دائم بأي لغات وحلول جديدة أقوم بإضافتها.
+## Source of the pages
 
-# About me - عني
+The pages are generated from the CoderHub workspace (`~/Personal/VSCode/CoderHub`), which the
+[coderhub MCP](https://github.com/OmarAfet/coderhub-mcp) fills from the platform. Decisions (2026-10-19):
 
-- Profile: **https://profile.satr.codes/omarafet/public/overview**
+- `content/docs/challenges` and `content/docs/activities` are rewritten on every import. Edit the workspace,
+  not the pages: `solution.<ext>` holds the code, and an optional `NOTES.md` is shown under the solution.
+- Only whitelisted `challenge.json` fields reach the site (the file also holds attempt ids and account state).
+- A solution file that is still the start code is not published.
+- Slugs are ASCII: the first 8 hex digits of the challenge id, or the English title when the platform has one.
+  Arabic titles do not slugify, and Unicode paths risk double encoding through the multi-zone rewrite.
 
-#
+## Status
 
-Thank you for taking the time to check out my repository. I hope that you find it useful.
+`status` comes from the platform result in `challenge.json`: `solved` (no badge), `pending` ("قيد الحل": not
+accepted yet, CoderHub still accepts a solution) or `unsolved` ("غير محلول": an activity challenge that was not
+solved before the activity ended; the page asks solvers to message the owner on Discord).
 
-شكرًا لك على الوقت الذي قضيته في التحقق من المشروع. اتمنى ان تجدها نافعة.
+## Arabic copy
+
+Register (decided 2026-10-19): mixed. Titles, questions and buttons in white Saudi dialect; numbers, facts
+and labels in simple MSA. The UI strings are in `lib/ar.ts` (with the number agreement of counted nouns:
+5 نقاط، 20 نقطة، 184 تحديًا). The problem statements stay as CoderHub wrote them.
+
+## Order
+
+Entries are listed newest first by `date` (`lib/sort-by-date.ts`, same rule as ctf-writeups). The levels and
+the challenges of an activity keep the order in their `meta.json`.
+
+## Commands
+
+| Command | Does |
+|---|---|
+| `coderhub pull` | (coderhub-mcp CLI) Refreshes the workspace from the platform; never overwrites a solution file |
+| `npm run import:workspace -- ~/Personal/VSCode/CoderHub` | Regenerates the pages from the workspace |
+| `npm run dev` | Dev server at http://localhost:3000/coderhub |
+| `npm run build` | Production build |
+
+## Hosting
+
+The site is a Next.js [multi-zone](https://nextjs.org/docs/app/guides/multi-zones) app with
+`basePath: '/coderhub'` (see `next.config.mjs`). It deploys as its own Vercel project, and the personal site
+(`omarafet.vercel.app`) rewrites `/coderhub/*` to it (`CODERHUB_ORIGIN` there). Pages are indexed
+(`indexable: true`, decided 2026-10-19).
+
+## Local files
+
+`/challenges/` is git-ignored: it holds 15 Python files that were never committed in the 2023 repo. 10 equal
+the workspace solutions; 5 are other versions of solved challenges. Delete them when you no longer need them.
+
+## License
+
+Code: MIT (see `LICENSE`).

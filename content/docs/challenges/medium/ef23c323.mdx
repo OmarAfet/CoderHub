@@ -1,0 +1,38 @@
+---
+title: "التلاعب بعناصر المصفوفة العددية"
+level: "medium"
+points: 10
+tags: ["Math","Lists","Numbers"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل مصفوفة `array` من نوع  عدد صحيح `int`  ،  تقوم الدالة  **بإختبار قيمة كل عنصر في المصفوفة**، في حال كان العنصر زوجي تضيف الدالة `1` إليه وفي حال كان فردي تنقص الدالة `1` منه ثم ترجع الناتج النهائي للمصفوفة بعد التعديل
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `numbers = [73,221,52,214]` | `[72,220,53,215]` |
+| `numbers = [12,9,25,6,12,19]` | `[13,8,24,7,13,18]` |
+| `numbers = [1,23,46,2,4]` | `[0,22,47,3,5]` |
+| `numbers = [6,5,100,0]` | `[7,4,101,1]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/ef23c323-1a7f-48f0-9113-ccbcf8875b60/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def filp_even_odd(numbers: List[int]) -> List[int]:
+    r = []
+    for i in numbers:
+        if i % 2 == 0:
+            r.append(i+1)
+        else:
+            r.append(i-1)
+    return r
+```

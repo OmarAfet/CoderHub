@@ -1,0 +1,39 @@
+---
+title: "نصف قطر الدائرة"
+level: "easy"
+points: 5
+tags: ["Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل عدد عشري موجب  يُمثل محيط الدائرة. تقوم الـدالة **بحساب نصف القطر**  وإرجاع نتيجته. 
+
+**ملاحظة**: قم بتعويض الثابت `pi` بالقيمة  `3.14`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `circumference = 0` | `0` |
+| `circumference = 130.55` | `20.7882165605` |
+| `circumference = 7` | `1.11464968153` |
+| `circumference = 13.5` | `2.14968152866` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7b997a91-57bb-4623-910a-0a06fa9e78ff/view)
+
+## الحل
+
+```python tab="Python"
+def raduis(circumference: float) -> float: # The Function name should be 'radius' not 'raduis'.
+    return circumference / (2 * 3.14)
+```
+
+```js tab="JavaScript"
+function raduis(circumference) {
+	return circumference / (2 * 3.14);
+}
+```

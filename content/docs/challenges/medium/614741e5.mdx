@@ -1,0 +1,47 @@
+---
+title: "إزالة الرموز من النصوص"
+level: "medium"
+points: 10
+tags: ["Conditions","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل قيمة نصية من نوع  `string`  تقوم الـدالة  `function` **بإزالة جميع الرموز مثل ($،!،@،#,.) ماعدا ال ( - ـ )** ثم تقوم الدالة  بإرجاع النص `string` بعد عملية الإزالة
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "Hi How are you!"` | `"Hi How are you"` |
+| `strParam = "Are_u_coming?"` | `"Are_u_coming"` |
+| `strParam = "Solve-the-challenge"` | `"Solve-the-challenge"` |
+| `strParam = "Nora Rahaf$"` | `"Nora Rahaf"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/614741e5-e7b7-4daa-89e2-e32ba6a75e38/view)
+
+## الحل
+
+```python tab="Python"
+import string
+def removeSpecialCharacters(strParam: str) -> str:
+    block = string.punctuation.replace("_", "")
+    block2 = block.replace("-", "")
+    r = [i for i in strParam if i not in block2]
+    return "".join(r)
+```
+
+```js tab="JavaScript"
+function removeSpecialCharacters(strParam) {
+	let str = "";
+	for (let i = 0; i < strParam.length; i++) {
+		if (strParam[i] == "-" || strParam[i] == "_" || strParam[i] == " " || (strParam[i] >= "a" && strParam[i] <= "z") || (strParam[i] >= "A" && strParam[i] <= "Z")) {
+			str += strParam[i];
+		}
+	}
+	return str;
+}
+```

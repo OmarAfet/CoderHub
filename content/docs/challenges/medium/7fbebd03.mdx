@@ -1,0 +1,60 @@
+---
+title: "تكلفة أضحية عائلة طويق"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-05-19T14:37:46"
+status: "solved"
+---
+
+## الوصف
+
+في صباح عيد الأضحى المبارك، اجتمعت **عائلة طويق** الكبيرة لتشتري معًا أضحية كبيرة واحدة، ثم اتفق أفراد العائلة على مشاركة تكلفة الشراء طبقًا لحصصهم المئوية.
+لديك الآن:
+
+- قائمة بأسماء أفراد **عائلة طويق**.
+
+- قائمة بنسب المساهمة لكل منهم (كسور عشرية ومجموعها 1).
+
+- التكلفة الإجمالية للأضحية بالكيلو (بريالات).
+
+مهمتك هي كتابة دالة `calculateSacrificeContributions` التي توزع التكلفة على أفراد العائلة حسب حصصهم، وتعيد مصفوفة توضح ما يدفعه كل فرد (قيمة مقربة إلى منزلتين عشريتين).
+
+- **المدخلات:**
+
+- `names` (string[]): أسماء أفراد العائلة.
+
+- `shares` (float[]): نسب مساهمتهم (كسور عشرية) بحيث
+∑shares[i]=1\sum shares[i] = 1∑shares[i]=1.
+
+- `totalCost` (float): إجمالي تكلفة الأضحية بالريال.
+
+- **الإخراج:**
+مصفوفة (float[]) بحجم `names.length`، حيث يكون العنصر iii هو
+
+round(shares[i]×totalCost,  2) \text\{round\}(shares[i] \times totalCost,\;2)round(shares[i]×totalCost,2)
+
+أي نصيب كل فرد من التكلفة، مقربًا إلى منزلتين عشريتين.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `names = ["أحمد","سارة"]`، `shares = [0.5,0.5]`، `totalCost = 200` | `[100,100]` |
+| `names = ["علي","منى","عمر"]`، `shares = [0.4,0.4,0.2]`، `totalCost = 500` | `[200,200,100]` |
+| `names = ["خالد"]`، `shares = [1]`، `totalCost = 750` | `[750]` |
+| `names = ["ليلى","هند"]`، `shares = [0.3,0.7]`، `totalCost = 300` | `[90,210]` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7fbebd03-224d-4425-a7a7-27a9db0c6356/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def calculateSacrificeContributions(names: List[str], shares: List[float], totalCost: float) -> List[float]:
+    r = []
+    for share in shares:
+        r.append(totalCost*share)
+    return r
+```

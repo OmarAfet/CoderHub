@@ -1,0 +1,37 @@
+---
+title: "آخر عنصر في المصفوفة"
+level: "easy"
+points: 5
+tags: ["Numbers","Lists"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل مصفوفة `array` من نوع `integer`. تقوم الدالة بإرجاع قيمة **آخر عنصر** في المصفوفة.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `arr = [42,32,42,11,30]` | `30` |
+| `arr = [34,2,23,545,6]` | `6` |
+| `arr = [5,645,3,34,5,7,0]` | `0` |
+| `arr = [3,4,5,6,1,4,6]` | `6` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7c986792-27ab-450b-b25b-d8d9a74a8dcd/view)
+
+## الحل
+
+```python tab="Python"
+def last_elm(arr: list[int]) -> int:
+    return arr[-1]
+```
+
+```js tab="JavaScript"
+function last_elm(arr) {
+	return arr.pop();
+}
+```

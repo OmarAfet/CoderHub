@@ -1,0 +1,44 @@
+---
+title: "التحقق من سلسلة الأصفار"
+level: "medium"
+points: 10
+tags: ["Conditions","Loop","String"]
+languages: ["Python"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل قيمة نصية من نوع `string` عبارة عن سلسلة مكونة من الرقم `(1 و 0)` ، تقوم الدالة  `function`  **بإرجاع أطول سلسلة من الأصفار المتتالية** كقيمة نصية `string`. في حال عدم وجود أصفار في النص  ، قم بإرجاع قيمة فارغة `“ “`.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `strParam = "100010"` | `"000"` |
+| `strParam = "110011"` | `"00"` |
+| `strParam = "00001"` | `"0000"` |
+| `strParam = "111001111"` | `"00"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/cb02e542-e5ff-4407-9fef-417586128920/view)
+
+## الحل
+
+```python tab="Python"
+def longestZero(strParam: str) -> str:
+    longest = 0
+    new_longest = 0
+    for i in strParam:
+        if i == '0':
+            new_longest += 1
+        else:
+            longest = max(longest, new_longest)
+            new_longest = 0
+
+    result = ''
+    for i in range(max(longest, new_longest)):
+        result += '0'
+
+    return result
+```

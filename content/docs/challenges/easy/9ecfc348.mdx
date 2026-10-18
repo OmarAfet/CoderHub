@@ -1,0 +1,37 @@
+---
+title: "حذف آخر حرف"
+level: "easy"
+points: 5
+tags: ["Algorithms","String"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة `function` تستقبل نص من نوع `string`. تقوم الدالة بحذف آخر حرف من النص وإرجاع القيمة النصية بعد الحذف.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `word = "CoderHub"` | `"CoderHu"` |
+| `word = "Programming"` | `"Programmin"` |
+| `word = "Security"` | `"Securit"` |
+| `word = "A"` | `""` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/9ecfc348-eaf6-4277-8b56-f247ce86776d/view)
+
+## الحل
+
+```python tab="Python"
+def deleteLastChar(word: str) -> str:
+    return word[:-1]
+```
+
+```js tab="JavaScript"
+function deleteLastChar(word) {
+    return word.slice(0, -1)
+}
+```

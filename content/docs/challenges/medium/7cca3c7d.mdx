@@ -1,0 +1,53 @@
+---
+title: "فلترة الكلمات المكررة"
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2025-08-18T13:56:26"
+status: "solved"
+---
+
+## الوصف
+
+تخيل أنك تعمل في شركة نشر كبيرة، حيث يُطلب منك مراجعة النصوص للتأكد من خلوها من الكلمات المكررة. الكاتب الذي يرسل
+
+النصوص دائمًا يكرر نفس الكلمات بطرق مختلفة، مثل:
+
+"Goodbye bye bye world world world"
+
+مهمتك هي تنظيف النصوص بحيث يتم الاحتفاظ بالكلمة الأولى فقط من أي كلمة مكررة، بغض النظر عن حالة الأحرف.
+
+مثاال:
+قبل الفلترة :
+Goodbye bye bye world world world
+
+بعد الفلترة :
+Goodbye bye world
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `sentence = "Goodbye bye bye world world world"` | `"Goodbye bye world"` |
+| `sentence = "Sam went went to to to his business"` | `"Sam went to his business"` |
+| `sentence = "Reya is is the the best player in eye eye game"` | `"Reya is the best player in eye game"` |
+| `sentence = "in inthe"` | `"in inthe"` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/7cca3c7d-f138-451c-a4b7-104c0703e667/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def removeRepeatedWords(sentence: str) -> str:
+    words = sentence.split()
+    seen = set()
+    result = []
+    for w in words:
+        lower = w.lower()
+        if lower not in seen:
+            seen.add(lower)
+            result.append(w)
+    return ' '.join(result)
+```

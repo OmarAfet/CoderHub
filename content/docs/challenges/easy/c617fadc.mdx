@@ -1,0 +1,38 @@
+---
+title: "مضروب العدد"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة  `function` تستقبل عدد صحيح من نوع `integer`، وتقوم الدالة  `function` بإرجاع **مضروب العدد المدخل (factorial)**
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 10` | `3628800` |
+| `number = 5` | `120` |
+| `number = 2` | `2` |
+| `number = 4` | `24` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c617fadc-c5de-4265-8bf5-f7cca98a4572/view)
+
+## الحل
+
+```python tab="Python"
+import math
+def factorial(number: int) -> int:
+    return math.factorial(number)
+```
+
+```js tab="JavaScript"
+function factorial(number) {
+	return number == 0 ? 1 : number * factorial(number - 1);
+}
+```

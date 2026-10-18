@@ -1,0 +1,37 @@
+---
+title: "الأس التكعيبي"
+level: "easy"
+points: 5
+tags: ["Numbers","Math"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة الدالة `function` تستقبل عدد صحيح `integer`. تقوم الدالة بإرجاع **الأُس التكعيبي exponent Cube**  لهذا العدد.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `number = 2` | `8` |
+| `number = -8` | `-512` |
+| `number = 0` | `0` |
+| `number = 1` | `1` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/60946524-e256-4905-91d1-d39e11452c5c/view)
+
+## الحل
+
+```python tab="Python"
+def exponent_cube(number: int) -> int:
+    return number**3
+```
+
+```js tab="JavaScript"
+function exponent_cube(number) {
+    return number ** 3;
+}
+```

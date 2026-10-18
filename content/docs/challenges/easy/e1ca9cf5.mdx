@@ -1,0 +1,37 @@
+---
+title: "باقي قسمة عددين"
+level: "easy"
+points: 5
+tags: ["Math","Numbers"]
+languages: ["Python","JavaScript"]
+date: "2022-05-29T12:35:40"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة  دالة `function` تستقبل عددين، العدد الأول يمثل رقماً صحيحاً `integer` والعدد الثاني يمثل أيضا رقماً صحيحاً `integer` ، ثم قم بإرجاع حاصل **باقي قسمة** هذين العددين.
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `a = 3`، `b = 3` | `0` |
+| `a = 19`، `b = 5` | `4` |
+| `a = 77`، `b = 5` | `2` |
+| `a = 99`، `b = 4` | `3` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/e1ca9cf5-3a2e-4d88-9d1c-cb8c012a9571/view)
+
+## الحل
+
+```python tab="Python"
+def div_remainder(a: int, b: int) -> int:
+    return a % b
+```
+
+```js tab="JavaScript"
+function div_remainder(a, b) {
+	return a % b;
+}
+```
