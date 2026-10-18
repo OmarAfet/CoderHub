@@ -26,9 +26,11 @@ export const tagLabel: Record<string, string> = {
 };
 
 // A counted noun agrees with the last two digits of the number (MSA):
-// 1 and 2 have their own forms; 3 to 10 take the plural; 11 to 99 take the
-// accusative singular; 100, 101 and 102 take the genitive singular.
+// 0, 1 and 2 have their own forms (CLDR "zero", "one", "two"); 3 to 10 take
+// the plural; 11 to 99 take the accusative singular; 100, 101 and 102 take
+// the genitive singular.
 type Forms = {
+  zero: string;
   one: string;
   two: string;
   plural: string;
@@ -37,6 +39,7 @@ type Forms = {
 };
 
 function counted(n: number, f: Forms): string {
+  if (n === 0) return f.zero;
   if (n === 1) return f.one;
   if (n === 2) return f.two;
   const r = n % 100;
@@ -47,6 +50,7 @@ function counted(n: number, f: Forms): string {
 
 export const challengeCount = (n: number) =>
   counted(n, {
+    zero: "لا توجد تحديات",
     one: "تحدٍ واحد",
     two: "تحديان",
     plural: "تحديات",
@@ -56,6 +60,7 @@ export const challengeCount = (n: number) =>
 
 export const pointCount = (n: number) =>
   counted(n, {
+    zero: "لا توجد نقاط",
     one: "نقطة واحدة",
     two: "نقطتان",
     plural: "نقاط",
@@ -65,6 +70,7 @@ export const pointCount = (n: number) =>
 
 export const acceptedCount = (n: number) =>
   counted(n, {
+    zero: "لا توجد حلول مقبولة",
     one: "حل مقبول واحد",
     two: "حلان مقبولان",
     plural: "حلول مقبولة",
@@ -73,7 +79,8 @@ export const acceptedCount = (n: number) =>
   });
 
 // Fumadocs UI strings (keys from fumadocs-ui .translations). Buttons are
-// imperatives; status messages are MSA.
+// imperatives; status messages are MSA. "تم النسخ" is the fixed UI form for
+// "Copied" (review 2026-10-19: "منسوخ" also means "abrogated").
 export const uiTranslations: Record<string, string> = {
   displayName: "العربية",
   "Search(search trigger)": "ابحث",
@@ -90,7 +97,7 @@ export const uiTranslations: Record<string, string> = {
   "Next Page(pagination)": "التالي",
   "Previous Page(pagination)": "السابق",
   "Copy Markdown(page actions)": "انسخ Markdown",
-  "Copied Markdown(page actions)": "منسوخ",
+  "Copied Markdown(page actions)": "تم النسخ",
   "View as Markdown(page actions)": "اعرض بصيغة Markdown",
   "Open(page actions)": "افتح",
   "Open in GitHub(page actions)": "افتح في GitHub",
@@ -101,14 +108,14 @@ export const uiTranslations: Record<string, string> = {
   "Read {url}, I want to ask questions about it.(page actions)":
     "اقرأ {url}، وعندي أسئلة عنها.",
   "Copy Text(code block)(aria-label)": "انسخ الكود",
-  "Copied Text(code block)(aria-label)": "منسوخ",
+  "Copied Text(code block)(aria-label)": "تم النسخ",
   "Copy Anchor Link(heading anchor)(aria-label)": "انسخ رابط العنوان",
-  "Copied Anchor Link(heading anchor)(aria-label)": "منسوخ",
+  "Copied Anchor Link(heading anchor)(aria-label)": "تم النسخ",
   "Open Sidebar(aria-label)": "افتح القائمة",
   "Close Sidebar(aria-label)": "أغلق القائمة",
   "Open Sidebar(sidebar)(aria-label)": "افتح القائمة",
   "Close Sidebar(sidebar)(aria-label)": "أغلق القائمة",
-  "Collapse Sidebar(sidebar)(aria-label)": "اطوِ القائمة",
+  "Collapse Sidebar(sidebar)(aria-label)": "أخفِ القائمة",
   "Hide Sidebar(sidebar)": "أخفِ القائمة",
   "Show Sidebar(sidebar)": "أظهر القائمة",
   "Toggle Menu(home layout header)(aria-label)": "افتح القائمة",

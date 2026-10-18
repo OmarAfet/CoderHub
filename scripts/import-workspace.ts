@@ -345,14 +345,10 @@ for (const a of existsSync(join(ws, "Activities"))
   writeMeta(out, { title, pages });
 }
 
-// Home page.
+// Home page. "بـ" and not "بلغتي": without a fatha, "بلغتي" reads as "in my
+// language" next to "حلولي" (Arabic review, 2026-10-19).
 const langs = [...languagesSeen];
-const inLangs =
-  langs.length === 1
-    ? `بلغة ${langs[0]}`
-    : langs.length === 2
-      ? `بلغتي ${langs[0]} و${langs[1]}`
-      : `بلغات ${langs.slice(0, -1).join(" و")} و${langs.at(-1)}`;
+const inLangs = `بـ ${langs.slice(0, -1).join("، ")}${langs.length > 1 ? " و" : ""}${langs.at(-1)}`;
 writeFileSync(
   join(DOCS, "index.mdx"),
   `---\ntitle: ${yaml("حلولي في كودرهب")}\ndescription: ${yaml(`${acceptedCount(stats.accepted)} ${inLangs}.`)}\n---\n\nاقرأ الحل بعد ما تحاول بنفسك.\n`,

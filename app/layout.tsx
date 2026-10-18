@@ -13,7 +13,9 @@ const sans = IBM_Plex_Sans_Arabic({
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteUrl}${basePath}/`),
   title: { template: `%s | ${appName}`, default: appName },
-  description: "حلولي المقبولة لتحديات كودرهب بلغتي Python وJavaScript.",
+  // "بـ" and not "بلغتي": without a fatha, "بلغتي" reads as "in my language"
+  // next to "حلولي" (Arabic review, 2026-10-19).
+  description: "حلولي المقبولة لتحديات كودرهب بـ Python وJavaScript.",
   robots: indexable ? undefined : { index: false },
 };
 

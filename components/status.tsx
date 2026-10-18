@@ -52,7 +52,7 @@ export function UnsolvedNotice() {
     <Callout type="error" title="غير محلول">
       ما انحل هذا التحدي، والمسابقة انتهت. حليته؟{" "}
       <a href={ownerDiscord} target="_blank" rel="noreferrer">
-        راسلني في ديسكورد
+        راسلني على Discord
       </a>
       .
     </Callout>
