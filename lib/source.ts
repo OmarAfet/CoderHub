@@ -2,6 +2,7 @@ import { llms, loader } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 import { metaSchema, pageSchema } from "fumadocs-core/source/schema";
 import { statusBadgesPlugin } from "fumadocs-core/source/status-badges";
+import { applyMdxPreset } from "fumadocs-mdx/config";
 import { defineDocs } from "fumadocs-mdx/macro";
 import { z } from "zod";
 import { sidebarBadge } from "@/components/status";
@@ -29,6 +30,13 @@ const docs = defineDocs({
     postprocess: {
       includeProcessedMarkdown: true,
     },
+    // Why (2026-11-02): a problem statement embeds an image from i.ibb.co;
+    // when that host times out, fetching its size failed the whole build on
+    // Vercel. Such an image is now left out of that build instead. The
+    // preset keeps every other default plugin.
+    mdxOptions: applyMdxPreset({
+      remarkImageOptions: { onError: "hide", external: { timeout: 10_000 } },
+    }),
   },
   meta: {
     schema: metaSchema,
