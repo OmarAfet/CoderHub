@@ -1,0 +1,47 @@
+---
+title: "عدّ الخوادم النشطة"
+level: "easy"
+points: 5
+languages: ["Python"]
+date: "2026-11-01T12:00:00"
+status: "solved"
+---
+
+## الوصف
+
+###
+
+تدير شركة مجموعة من الخوادم الافتراضية على منصات سحابية مختلفة. يمكن أن تكون حالة كل خادم `running` أو `stopped` أو `pending` أو `terminated`.
+
+مهمتك هي كتابة دالة تستقبل قائمة بحالات الخوادم، ثم تعيد عدد الخوادم التي تكون حالتها `running`.
+
+### مثال
+
+عند إدخال:
+
+`["running", "stopped", "running"]`يوجد خادمان في حالة تشغيل، لذلك تكون النتيجة:
+
+`2`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `statuses = ["running","stopped","running"]` | `2` |
+| `statuses = ["stopped","terminated"]` | `0` |
+| `statuses = ["running"]` | `1` |
+| `statuses = []` | `0` |
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def count_running_instances(statuses: List[str]) -> int:
+    return statuses.count("running")
+```
+
+## ملاحظات
+
+الدالة `count` في بايثون تعدّ مرات ظهور القيمة `"running"` في القائمة مباشرة، فلا نحتاج إلى حلقة.
+
+التعقيد: O(n) في الوقت.

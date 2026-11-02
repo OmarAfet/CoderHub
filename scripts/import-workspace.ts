@@ -61,6 +61,7 @@ const LEVELS: Record<string, string> = {
 const ACTIVITY_SLUGS: Record<string, string> = {
   "مسابقة ليالي رمضان": "ramadan-nights",
   "مسابقة اليوم الوطني السعودي 93": "saudi-national-day-93",
+  "تحدي الحلول الأمنية": "security-solutions",
 };
 
 type Test = { inputs?: { name: string; value: unknown }[]; output?: unknown };

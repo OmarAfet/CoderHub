@@ -1,0 +1,49 @@
+---
+title: "تنقية الأسرار."
+level: "medium"
+points: 10
+tags: ["Math"]
+languages: ["Python"]
+date: "2026-04-15T14:42:53"
+status: "pending"
+---
+
+## الوصف
+
+تعمل في فريق مشاركة المعلومات مع شركاء خارجيين، ولكن سجلات النظام تحتوي على مقاطع حساسة (مثل رموز دخول أو مفاتيح API) بين وسوم `<secret>` و`</secret>`.
+المطلوب: استبدال أي نص داخل هذه الوسوم بوسم واحد آمن: `[REDACTED]`.
+وبذلك تحافظ على شكل السجلّ مع حماية الأسرار.
+
+### المثال العملي:
+
+- النص الأصلي:
+`"token=<secret>ABC123</secret>; user=admin"`
+
+- بعد المعالجة:
+`"token=[REDACTED]; user=admin"`
+
+وإذا وُجد أكثر من مقطع سرّي:
+
+- `"key=<secret>AAA</secret>|<secret>BBB</secret>"`
+
+- الناتج: `"key=[REDACTED]|[REDACTED]"`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `counts = [1,3,2,5,1]`، `k = 3` | `10` |
+| `counts = [5,5,5,5]`، `k = 2` | `10` |
+| `counts = [10]`، `k = 1` | `10` |
+| `counts = [2,1,2,1,2,1]`، `k = 3` | `5` |
+
+[جرّب تحله في كودرهب](https://coderhub.tuwaiq.edu.sa/challenges/c2aa07ec-f88b-48b1-b843-cf918377ea32/view)
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def sanitizeSecrets(text: str) -> str:
+    import re
+    return re.sub(r"<secret>.*?</secret>", "[REDACTED]", text, flags=re.S)
+```

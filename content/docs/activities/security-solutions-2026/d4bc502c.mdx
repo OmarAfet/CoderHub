@@ -1,0 +1,48 @@
+---
+title: "كاشف الرسائل المزعجة."
+level: "medium"
+points: 10
+languages: ["Python"]
+date: "2026-11-01T12:00:00"
+status: "solved"
+---
+
+## الوصف
+
+في تطبيق دردشة، يحاول بعض المستخدمين إرسال رسائل مزعجة عن طريق تكرار نفس الكلمة مرات عديدة.
+
+تعتبر الرسالة مزعجة إذا تكررت أي كلمة أكثر من 3 مرات.
+
+**مثال:**
+
+إذا كانت الكلمات:
+
+`["buy", "buy", "buy", "buy"]`فالنتيجة:
+
+`true`
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `words = ["hi","hi","hi","hi"]` | `true` |
+| `words = ["hello","world"]` | `false` |
+| `words = ["a","b","a","a"]` | `false` |
+| `words = ["a","a","a","a","b"]` | `true` |
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def is_spam_message(words: List[str]) -> bool:
+    from collections import Counter
+    return any(c > 3 for c in Counter(words).values())
+```
+
+## ملاحظات
+
+الرسالة مزعجة إذا تكررت أي كلمة أكثر من 3 مرات. نعدّ الكلمات بـ `Counter`، ونرجع `True` إذا كان أي عدد أكبر من 3.
+
+انتبه للشرط: "أكثر من 3" يعني 4 مرات فأكثر، لذلك 3 تكرارات ليست مزعجة.
+
+التعقيد: O(n) في الوقت.

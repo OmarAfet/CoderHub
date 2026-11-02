@@ -1,0 +1,46 @@
+---
+title: "تشفير الرسائل"
+level: "hard"
+points: 20
+languages: ["Python"]
+date: "2026-11-01T12:00:00"
+status: "solved"
+---
+
+## الوصف
+
+قم بكتابة دالة تستقبل رسالة نصية `message` ومفتاح التشفير `key` وقيمة `encryption `.
+ويجيب عليك تشفير الرسالة بإستخدام مفتاح التشفير اذا كانت قيمة `encryption = true` 
+اما اذا كانت  `encryption = false` فيجب عليك فك التشفير.
+
+قواعد التشفير: 
+1. عكس الرسالة
+2. تحريك كل حرف حسب قيمة المفتاح (قم بتحريك الحروف `uppercase` فقط)
+
+## أمثلة
+
+| المدخلات | المخرجات المتوقعة |
+| --- | --- |
+| `message = "SAUDI ARABIA"`، `key = 3`، `encryption = true` | `"DLEDUD LGXDV"` |
+| `message = "GXDV QLE dammahoP"`، `key = 3`، `encryption = false` | `"Mohammad BIN SAUD"` |
+| `message = "gnimmargorV"`، `key = 6`، `encryption = false` | `"Programming"` |
+| `message = "saudi arabia"`، `key = 6`، `encryption = true` | `"aibara iduas"` |
+
+## الحل
+
+```python tab="Python"
+from typing import List
+def secret_message(message: str, key: int, encryption: bool) -> str:
+    shift = key if encryption else -key
+    return "".join(chr((ord(c) - 65 + shift) % 26 + 65) if "A" <= c <= "Z" else c for c in message[::-1])
+```
+
+## ملاحظات
+
+التشفير خطوتان: نعكس الرسالة، ثم نزيح كل حرف كبير (A إلى Z) بمقدار المفتاح، مع الالتفاف من Z إلى A. الحروف الصغيرة والمسافات تبقى كما هي.
+
+فك التشفير هو نفس العملية بإزاحة سالبة، لأن عكس النص وإزاحة الحروف لا يتعارضان، فترتيبهما لا يغيّر النتيجة.
+
+مثال: `"SAUDI ARABIA"` بمفتاح 3 تصبح `"DLEDUD LGXDV"`.
+
+التعقيد: O(n) في الوقت.
