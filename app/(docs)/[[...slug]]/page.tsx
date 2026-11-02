@@ -39,7 +39,14 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
     (folder ? challengeCount(countChallenges(folder.children)) : undefined);
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      // The breadcrumb separator is a ChevronRight that fumadocs does not
+      // mirror in RTL, so it pointed back at the parent. "Next" points left
+      // in RTL: rotate only the breadcrumb's arrows (2026-11-02).
+      breadcrumb={{ className: "rtl:[&>svg]:rotate-180" }}
+    >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription className="mb-0">{description}</DocsDescription>
       <ChallengeBadges

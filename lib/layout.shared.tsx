@@ -1,15 +1,13 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { ArrowRight } from "lucide-react";
-import { appName, gitConfig, homeUrl, repoPublic } from "./shared";
+import { appName, homeUrl } from "./shared";
+import { socialLinks } from "./social";
 
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
       title: appName,
     },
-    githubUrl: repoPublic
-      ? `https://github.com/${gitConfig.user}/${gitConfig.repo}`
-      : undefined,
     links: [
       {
         type: "custom",
@@ -25,6 +23,7 @@ export function baseOptions(): BaseLayoutProps {
           </a>
         ),
       },
+      ...socialLinks,
     ],
   };
 }
